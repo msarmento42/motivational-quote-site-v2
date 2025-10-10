@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us – Motivational Quote Site</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="brand">Motivational Quotes</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="content">
+            <h1>Contact Us</h1>
+            <p>
+                We would love to hear from you! Whether you have feedback on our
+                content, suggestions for new quotes, or questions about our site, please
+                feel free to reach out. We aim to respond within two business days.
+            </p>
+            <p>
+                For general inquiries, send us an email at <a href="mailto:contact@motivational-quotes.example">contact@motivational-quotes.example</a>.
+                If you are interested in collaborating or have media inquiries, please
+                use <a href="mailto:media@motivational-quotes.example">media@motivational-quotes.example</a>.
+            </p>
+            <p>
+                Prefer using a form? Fill out the fields below and click “Send Message.”
+                The form uses the `mailto:` protocol, which will open your default
+                email application with the details pre‑filled. If you don’t have a
+                default email client configured, please send us an email directly using
+                the addresses above.
+            </p>
+            <form action="mailto:contact@motivational-quotes.example" method="post" enctype="text/plain">
+                <label for="name">Name:</label><br />
+                <input type="text" id="name" name="name" required><br /><br />
+                <label for="email">Email:</label><br />
+                <input type="email" id="email" name="email" required><br /><br />
+                <label for="message">Message:</label><br />
+                <textarea id="message" name="message" rows="6" cols="50" required></textarea><br /><br />
+                <input type="submit" value="Send Message" class="quote-button">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="year"></span> Motivational Quotes. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

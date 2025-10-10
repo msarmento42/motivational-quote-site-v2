@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motivational Quote Generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="Get inspired with unique motivational quotes and learn how positive thinking can improve your life." />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="brand">Motivational Quotes</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Your Daily Dose of Motivation</h1>
+            <p>
+                Welcome to our motivational quote generator! Each time you visit or click the
+                button below, you'll receive a fresh, original piece of inspiration to help
+                you stay focused on your goals. All quotes are either created for this
+                site or are in the public domain to ensure compliance with copyright rules.
+            </p>
+        </section>
+        <section class="quote-section">
+            <div id="quote-box" class="quote-box">
+                <p id="quote-text">Loading quote...</p>
+            </div>
+            <button id="new-quote-btn" class="quote-button">New Quote</button>
+        </section>
+        <section class="content">
+            <h2>Why Motivation Matters</h2>
+            <p>
+                Motivation fuels us to take action, overcome obstacles and achieve our dreams.
+                Studies have shown that people who maintain a positive mindset are more likely
+                to accomplish their goals and sustain happiness in their daily lives. Our mission
+                is to provide you with encouragement and information that can help you stay on
+                track. In addition to our quote generator, you’ll find in‑depth articles on
+                positive psychology, productivity and personal growth in the articles section of
+                this site. Check back often for new content!
+            </p>
+        </section>
+        <!-- Placeholder for future AdSense code -->
+        <!-- When your site is approved for Google AdSense, paste your ad code below this comment -->
+    </main>
+    <footer>
+        <p>&copy; <span id="year"></span> Motivational Quotes. All rights reserved.</p>
+    </footer>
+    <script src="app.js"></script>
+    <script>
+        // Update the year in the footer automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
