@@ -120,3 +120,16 @@ footer {
         font-size: 2rem;
     }
 }
+
+.quote-author {
+    font-style: italic;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.ads-section {
+    margin: 2rem auto;
+    max-width: 728px;
+    text-align: center;
+}
