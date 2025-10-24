@@ -6,12 +6,14 @@
   <url><loc>https://motivational-quote.org/privacy.html</loc></url>
   <url><loc>https://motivational-quote.org/terms.html</loc></url>
   <url><loc>https://motivational-quote.org/blog.html</loc></url>
+
+  <!-- Posts in /posts/ -->
   <url><loc>https://motivational-quote.org/posts/positive-mindset.html</loc></url>
   <url><loc>https://motivational-quote.org/posts/daily-motivation.html</loc></url>
   <url><loc>https://motivational-quote.org/posts/goal-setting.html</loc></url>
   <url><loc>https://motivational-quote.org/posts/overcoming-setbacks.html</loc></url>
-  <url><loc>https://motivational-quote.org/posts/cultivating-resilience.html</loc></url>
-  <url><loc>https://motivational-quote.org/posts/art-of-letting-go.html</loc></url>
+
+  <!-- Root-level posts -->
   <url><loc>https://motivational-quote.org/achieving-work-life-balance.html</loc></url>
   <url><loc>https://motivational-quote.org/art-of-letting-go.html</loc></url>
   <url><loc>https://motivational-quote.org/benefits-of-journaling.html</loc></url>
