@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Blog — Motivational Quote</title>
-  <meta name="description" content="Explore motivating articles on mindset, productivity, resilience, habits, and personal growth." />
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6175161566333696" crossorigin="anonymous"></script>
-
+  <title>Blog | Motivational-Quote.org</title>
+  <meta name="description" content="Browse practical, uplifting articles about habits, resilience, mindset, and personal growth. All posts are easy to read and action-focused." />
   <link rel="stylesheet" href="style.css" />
+  <!-- Auto Ads only (no manual <ins> blocks) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6175161566333696" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -30,16 +27,16 @@
   <main>
     <section class="content">
       <h1>Blog</h1>
-      <p>Explore our collection of motivational articles to inspire and empower you.</p>
-
+      <p>Explore our collection of short, practical reads on motivation and personal growth.</p>
       <ul class="post-list">
+        <!-- Root posts -->
         <li><a href="achieving-work-life-balance.html">Achieving Work-Life Balance in a Busy World</a></li>
         <li><a href="art-of-letting-go.html">The Art of Letting Go and Moving On</a></li>
         <li><a href="benefits-of-journaling.html">The Benefits of Journaling for Personal Growth</a></li>
         <li><a href="boosting-your-self-confidence.html">Boosting Your Self-Confidence</a></li>
         <li><a href="building-healthy-relationships.html">Building Healthy Relationships</a></li>
         <li><a href="building-self-discipline.html">Building Self-Discipline</a></li>
-        <li><a href="creativity-for-growth.html">Creativity for Growth</a></li>
+        <li><a href="creativity-for-growth.html">Creativity as a Tool for Growth</a></li>
         <li><a href="cultivating-resilience.html">Cultivating Resilience in Adversity</a></li>
         <li><a href="developing-empathy-compassion.html">Developing Empathy and Compassion</a></li>
         <li><a href="embracing-change-uncertainty.html">Embracing Change and Uncertainty</a></li>
@@ -54,33 +51,18 @@
         <li><a href="power-of-habits.html">The Power of Habits</a></li>
         <li><a href="setting-boundaries-self-care.html">Setting Boundaries for Self-Care</a></li>
 
-        <!-- Posts in /posts/ directory -->
-        <li><a href="posts/positive-mindset.html">Embracing a Positive Mindset</a></li>
-        <li><a href="posts/daily-motivation.html">Daily Motivation Strategies</a></li>
-        <li><a href="posts/goal-setting.html">Goal Setting for Success</a></li>
-        <li><a href="posts/overcoming-setbacks.html">Overcoming Setbacks and Building Resilience</a></li>
-        <!-- Removed duplicates of "cultivating-resilience" and "art-of-letting-go" from /posts/ -->
+        <!-- These four will be moved from /posts/ to the root in Phase 4 -->
+        <li><a href="positive-mindset.html">Embracing a Positive Mindset</a></li>
+        <li><a href="daily-motivation.html">Daily Motivation Strategies</a></li>
+        <li><a href="goal-setting.html">Goal Setting for Success</a></li>
+        <li><a href="overcoming-setbacks.html">Overcoming Setbacks and Building Resilience</a></li>
       </ul>
     </section>
-
-    <!-- In-page Ad -->
-    <div class="ads-section">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-6175161566333696"
-           data-ad-slot="0000000000"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
-    <script>
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
   </main>
 
   <footer>
     <p>&copy; <span id="year"></span> Motivational Quotes. All rights reserved.</p>
   </footer>
-
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
