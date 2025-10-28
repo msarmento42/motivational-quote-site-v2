@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Contact — Motivational Quote</title>
-  <meta name="description" content="Get in touch with Motivational Quote for questions, feedback, collaborations, or media inquiries." />
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6175161566333696" crossorigin="anonymous"></script>
-
+  <title>Contact Us – Motivational-Quote.org</title>
+  <meta name="description" content="Contact Motivational-Quote.org with questions, feedback, or collaboration ideas. We typically respond within two business days." />
   <link rel="stylesheet" href="style.css" />
+  <!-- Auto Ads only (no manual <ins> blocks) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6175161566333696" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -31,50 +28,34 @@
     <section class="content">
       <h1>Contact Us</h1>
       <p>
-        We’d love to hear from you! Whether you have feedback on our content,
-        suggestions for new posts, or questions about the site, please reach out.
-        We aim to respond within two business days.
+        We’d love to hear from you—feedback, suggestions, corrections, or collaboration ideas.
+        We typically reply within two business days.
       </p>
-      <p>
-        General inquiries: <a href="mailto:contact@motivational-quote.org">contact@motivational-quote.org</a><br />
-        Media/collaborations: <a href="mailto:media@motivational-quote.org">media@motivational-quote.org</a>
-      </p>
-      <p>
-        Prefer using a form? Fill out the fields below and click “Send Message.”
-        The form uses the <code>mailto:</code> protocol, which opens your default
-        email app with details pre-filled. If you don’t have a default email client,
-        please email us directly at the addresses above.
-      </p>
+      <ul>
+        <li><strong>General inquiries:</strong> <a href="mailto:contact@motivational-quote.org">contact@motivational-quote.org</a></li>
+        <li><strong>Media/partnerships:</strong> <a href="mailto:media@motivational-quote.org">media@motivational-quote.org</a></li>
+      </ul>
 
+      <h2>Quick Form (opens your email app)</h2>
+      <p>If you don’t have a default mail client configured, please email us directly using the addresses above.</p>
       <form action="mailto:contact@motivational-quote.org" method="post" enctype="text/plain">
-        <label for="name">Name:</label><br />
-        <input type="text" id="name" name="name" required><br /><br />
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" required><br /><br />
-        <label for="message">Message:</label><br />
+        <label for="name">Name</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">Email</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="message">Message</label><br />
         <textarea id="message" name="message" rows="6" cols="50" required></textarea><br /><br />
-        <input type="submit" value="Send Message" class="quote-button">
+
+        <input type="submit" value="Send Message" class="quote-button" />
       </form>
     </section>
-
-    <!-- In-page Ad -->
-    <div class="ads-section">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-6175161566333696"
-           data-ad-slot="0000000000"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
-    <script>
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
   </main>
 
   <footer>
     <p>&copy; <span id="year"></span> Motivational Quotes. All rights reserved.</p>
   </footer>
-
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
