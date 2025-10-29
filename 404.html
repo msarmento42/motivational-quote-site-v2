@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found (404) – Motivational-Quote.org</title>
+  <meta name="description" content="The page you’re looking for doesn’t exist. Head back to our motivational quotes and articles." />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="brand">Motivational Quotes</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>Page Not Found</h1>
+      <p>The page you’re looking for doesn’t exist or may have moved.</p>
+      <p>
+        Try heading back to the <a href="index.html">Home page</a> or browse our
+        <a href="blog.html">Blog</a> for the latest articles.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Motivational Quotes. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
