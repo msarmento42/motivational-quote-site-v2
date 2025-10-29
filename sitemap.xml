@@ -7,13 +7,6 @@
   <url><loc>https://motivational-quote.org/terms.html</loc></url>
   <url><loc>https://motivational-quote.org/blog.html</loc></url>
 
-  <!-- Posts in /posts/ -->
-  <url><loc>https://motivational-quote.org/posts/positive-mindset.html</loc></url>
-  <url><loc>https://motivational-quote.org/posts/daily-motivation.html</loc></url>
-  <url><loc>https://motivational-quote.org/posts/goal-setting.html</loc></url>
-  <url><loc>https://motivational-quote.org/posts/overcoming-setbacks.html</loc></url>
-
-  <!-- Root-level posts -->
   <url><loc>https://motivational-quote.org/achieving-work-life-balance.html</loc></url>
   <url><loc>https://motivational-quote.org/art-of-letting-go.html</loc></url>
   <url><loc>https://motivational-quote.org/benefits-of-journaling.html</loc></url>
@@ -34,4 +27,9 @@
   <url><loc>https://motivational-quote.org/power-of-daily-gratitude.html</loc></url>
   <url><loc>https://motivational-quote.org/power-of-habits.html</loc></url>
   <url><loc>https://motivational-quote.org/setting-boundaries-self-care.html</loc></url>
+
+  <url><loc>https://motivational-quote.org/positive-mindset.html</loc></url>
+  <url><loc>https://motivational-quote.org/daily-motivation.html</loc></url>
+  <url><loc>https://motivational-quote.org/goal-setting.html</loc></url>
+  <url><loc>https://motivational-quote.org/overcoming-setbacks.html</loc></url>
 </urlset>
