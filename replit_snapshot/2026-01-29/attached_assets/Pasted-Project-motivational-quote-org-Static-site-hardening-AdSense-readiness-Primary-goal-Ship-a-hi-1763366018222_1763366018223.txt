@@ -1,0 +1,256 @@
+Project: motivational-quote.org — Static site hardening & AdSense readiness
+
+Primary goal: Ship a high-quality, static site that meets AdSense policies and Search best practices, with Auto Ads only, strictly public-domain quotes with proper author attribution, and deployment via GitHub → Netlify.
+
+Inputs (fill any blanks before starting)
+
+DOMAIN: motivational-quote.org
+
+ADSENSE_PUB_ID: pub-6175161566333696 (Auto Ads only)
+
+GITHUB_REPO: (use existing repo for this site; if none, create) motivational-quote-org
+
+GITHUB_USER: <your GitHub username>
+
+GITHUB_PAT (repo write): <paste secret>
+
+NETLIFY_AUTH_TOKEN: <paste secret>
+
+NETLIFY_SITE_ID: <paste site id>
+
+ORG_NAME: Motivational Quotes
+
+ORG_LOGO_URL: https://motivational-quote.org/favicon-512.png (we’ll generate)
+
+CONTACT_EMAIL: contact@motivational-quote.org
+
+PRIVACY_EMAIL: privacy@motivational-quote.org
+
+Constraints
+
+AdSense: implement Auto Ads only (no manual ad units). Include the script on content pages; keep it off /privacy.html, /terms.html, /contact.html, /editorial-policy.html, /attribution.html if desired (not required for Auto Ads, but we’ll prepare a toggle). 
+Google for Developers
+
+Quotes: strict public-domain only (US). Prefer authors whose works were published ≤1929 (now PD in the US) and clearly attribute each quote. Store in a local JSON file; do not call external quote APIs. 
+Duke Law School
+
+Content quality: pages must be original, people-first, and substantial (≥1,000 words for long-form posts). Add bylines, last-updated, internal links. 
+Google for Developers
+
+Deliverables
+
+Repo setup
+
+Create/normalize a static site repo with this structure:
+
+/public
+  /assets (CSS, images, icons)
+  /posts (HTML articles)
+  /quotes/quotes.json (public-domain quotes w/ author fields)
+  index.html, about.html, contact.html, privacy.html, terms.html
+  editorial-policy.html, attribution.html, blog.html, 404.html
+  robots.txt, sitemap.xml, ads.txt, favicon set (16/32/180/192/512)
+  opengraph-home.jpg, opengraph-blog.jpg
+  app.js, style.css
+netlify.toml
+README.md
+
+
+Initialize git, set remote origin to GITHUB_REPO, push main.
+
+AdSense Auto Ads (site-wide, content pages only)
+
+Insert once in <head> of all content pages:
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-{{ADSENSE_PUB_ID}}" crossorigin="anonymous"></script>
+
+
+(Skip or feature-flag on util pages: privacy/terms/contact/editorial-policy/attribution/404.)
+
+Create a tiny helper include or build step so the script is easy to toggle.
+
+ads.txt
+
+Create /public/ads.txt with exactly:
+
+google.com, {{ADSENSE_PUB_ID}}, DIRECT, f08c47fec0942fa0
+
+
+Google for Developers
+
+Robots & Sitemap
+
+/public/robots.txt:
+
+User-agent: *
+Allow: /
+Sitemap: https://{{DOMAIN}}/sitemap.xml
+
+
+Google for Developers
+
+Generate a static /public/sitemap.xml that lists all HTML pages and /posts/*. Re-generate automatically during build if files change. Follow Search Central sitemap XML format. 
+Google for Developers
+
+Public-domain quotes with attribution (no external APIs)
+
+Create /public/quotes/quotes.json (100–150 entries) with:
+
+[{ "text": "...", "author": "..." }, ...]
+
+
+Sources limited to authors firmly in US public domain (e.g., Lao Tzu, Marcus Aurelius (public translations only), Aristotle, Epictetus, Confucius, Emerson, Thoreau, Seneca, Sun Tzu, Lincoln’s public speeches, etc.). Include a comment in README describing PD criteria. Cite Duke Public Domain Day 2025 in README as the rule-of-thumb reference. 
+Duke Law School
+
+Update app.js to load from /quotes/quotes.json, randomly display a quote, and render an author line. Remove any ZenQuotes or third-party calls.
+
+Content quality & E-E-A-T
+
+Create or upgrade these pages:
+
+about.html (purpose, who runs the site).
+
+editorial-policy.html (original content, PD-only quotes, fact-checking).
+
+attribution.html (how we attribute quotes; PD policy; contact for corrections).
+
+contact.html (email link + basic form mailto: fallback).
+
+privacy.html, terms.html (retain; ensure clarity).
+
+blog.html (lists all posts; newest first).
+
+Ensure each post has: descriptive H1, table of contents, H2/H3 structure, internal links to 2–4 related posts, byline, and “Updated on” date. Content must be people-first and original (≥1,000 words for the long posts). 
+Google for Developers
+
+Meta, canonical, structured data, and social cards
+
+Each page:
+
+<title> ≤ 60 chars; <meta name="description"> 140–160 chars.
+
+Canonical absolutely-addressed to https://{{DOMAIN}}/....
+
+Open Graph + Twitter Card (summary_large_image).
+
+JSON-LD:
+
+WebSite on index.html (with name, url, publisher Organization using ORG_NAME and ORG_LOGO_URL).
+
+BreadcrumbList on posts.
+
+Provide opengraph-home.jpg and opengraph-blog.jpg (1200×630).
+
+Design & performance
+
+One responsive CSS (/public/style.css), semantic HTML, accessible contrast.
+
+Lazy-load images, compress JPG/PNG, preconnect to https://pagead2.googlesyndication.com.
+
+Lighthouse target: Performance ≥ 90 on desktop, ≥ 85 on mobile.
+
+404 page
+
+Friendly 404 with links back to Home and Blog. Return proper status with Netlify config.
+
+Netlify
+
+Add /netlify.toml:
+
+[build]
+publish = "public"
+
+[[redirects]]
+from = "/*"
+to = "/404.html"
+status = 404
+
+
+Install Netlify CLI and set up a deploy script:
+
+If token & site ID provided, run netlify deploy --prod --dir=public --site={{NETLIFY_SITE_ID}}.
+
+Otherwise, output manual steps.
+
+Google for Developers
+
+CI & source control
+
+Commit granularly. Open a PR titled “AdSense readiness + PD quotes + SEO hardening”.
+
+On success, squash-merge to main and tag v1.0.0-adsense-ready.
+
+Validation & handoff
+
+Sanity checks:
+
+ads.txt resolves at https://{{DOMAIN}}/ads.txt.
+
+robots.txt and sitemap.xml valid.
+
+Auto Ads script present on content pages, omitted where flagged.
+
+Random quote renders with correct author, page passes W3C HTML validation.
+
+Provide a brief CHECKLIST.md summarizing what was done and how to re-submit in AdSense (“Sites → motivational-quote.org → Request review”).
+
+Output a zipped artifact of the /public folder and a link to the live Netlify URL.
+
+Definition of Done (acceptance criteria)
+
+Site builds to /public and deploys to Netlify production successfully.
+
+ads.txt present with Google seller ID; Auto Ads script uses {{ADSENSE_PUB_ID}}. 
+Google for Developers
+
+Quotes render from local JSON, all entries PD-safe and attributed.
+
+All pages have canonical, OG/Twitter, JSON-LD, and pass a basic HTML validator.
+
+sitemap.xml enumerates all pages and posts and is linked from robots.txt. 
+Google for Developers
+
+At least 20 long-form posts meet people-first content guidance with bylines and internal links. 
+Google for Developers
+
+404 works and returns status via Netlify.
+
+README documents PD policy, content guidelines, and how to add new posts.
+
+If anything is missing
+
+If tokens aren’t provided, halt before deployment and print what’s needed: GITHUB_PAT, NETLIFY_AUTH_TOKEN, NETLIFY_SITE_ID.
+
+If a conflicting repo exists, choose the most recently updated one for this domain name or create motivational-quote-org and push there, then wire Netlify to it.
+
+What I still need from you (so the Agent can run end-to-end)
+
+GitHub PAT with repo scope.
+
+Netlify: NETLIFY_AUTH_TOKEN and Site ID for motivational-quote.org.
+
+Confirm the target repo name (use existing or create motivational-quote-org).
+
+Optional: confirm utility pages where you want to omit the Auto Ads script (I’ll default to omitting on privacy/terms/contact/editorial-policy/attribution/404).
+
+If you give me those three secrets + the repo name, you can paste the brief above into Replit Agent and it will orchestrate the whole thing.
+
+References
+
+Replit Core/Agent capabilities (build/deploy automations, GitHub & CLI workflows). 
+AnonSystem
++1
+
+AdSense Auto Ads: single script include with your client ID; use Ads.txt with Google seller ID. 
+Google for Developers
++1
+
+Robots + Sitemap: Google Search Central guidance on sitemap/robots. 
+Google for Developers
+
+Content quality/E-E-A-T & people-first (avoid low-value content). 
+Google for Developers
++1
+
+Public Domain 2025: 1929 works now PD in the US—use as rule-of-thumb for safe sources. 
+Duke Law School
