@@ -36,27 +36,18 @@
         <li><strong>General inquiries:</strong> <a href="mailto:contact@motivational-quote.org">contact@motivational-quote.org</a></li>
         <li><strong>Media/partnerships:</strong> <a href="mailto:media@motivational-quote.org">media@motivational-quote.org</a></li>
       </ul>
-
-      <h2>Quick Form (opens your email app)</h2>
-      <p>If you don’t have a default mail client configured, please email us directly using the addresses above.</p>
-      <form action="mailto:contact@motivational-quote.org" method="post" enctype="text/plain">
-        <label for="name">Name</label><br />
-        <input type="text" id="name" name="name" required /><br /><br />
-
-        <label for="email">Email</label><br />
-        <input type="email" id="email" name="email" required /><br /><br />
-
-        <label for="message">Message</label><br />
-        <textarea id="message" name="message" rows="6" cols="50" required></textarea><br /><br />
-
-        <input type="submit" value="Send Message" class="quote-button" />
-      </form>
-    </section>
+      <h2>Quick Form</h2>
+      <p>Use the form below. If it fails, it will fall back to opening your email app.</p>
+      </section>
   
   <form id="contactForm" method="post" action="/api/contact" style="margin-top:16px;display:grid;gap:10px;max-width:520px;">
     <label>
+      <div style="font-weight:600;margin-bottom:4px;">Name</div>
+      <input name="name" type="text" autocomplete="name" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:10px;" />
+    </label>
+    <label>
       <div style="font-weight:600;margin-bottom:4px;">Email</div>
-      <input name="email" type="email" autocomplete="email" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:10px;" />
+      <input name="email" type="email" required autocomplete="email" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:10px;" />
     </label>
     <label>
       <div style="font-weight:600;margin-bottom:4px;">Message</div>
@@ -77,17 +68,35 @@
   </script>
 
 <script>
-const f=document.getElementById('contactForm');
-if(f){
-  f.addEventListener('submit', async (e)=>{
+const f = document.getElementById('contactForm');
+function mailtoFallback(fd){
+  const name = (fd.get('name')||'').toString();
+  const email = (fd.get('email')||'').toString();
+  const message = (fd.get('message')||'').toString();
+  const subject = encodeURIComponent('Contact form submission');
+  const body = encodeURIComponent(`Name: ${name}
+Email: ${email}
+
+${message}`);
+  window.location.href = `mailto:contact@motivational-quote.org?subject=${subject}&body=${body}`;
+}
+if (f) {
+  f.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const status=document.getElementById('contactStatus');
-    status.textContent='Sending…';
-    const fd=new FormData(f);
-    const r=await fetch('/api/contact', {method:'POST', body: fd});
-    const j=await r.json().catch(()=>({ok:false}));
-    status.textContent=(r.ok && j.ok)?'Sent. If you do not hear back, email contact@motivational-quote.org':'Failed. Please email contact@motivational-quote.org';
-    if(r.ok && j.ok) f.reset();
+    const status = document.getElementById('contactStatus');
+    status.textContent = 'Sending…';
+    const fd = new FormData(f);
+    try {
+      const r = await fetch('/api/contact', { method: 'POST', body: fd });
+      const j = await r.json().catch(() => ({ ok: false }));
+      if (r.ok && j.ok) {
+        status.textContent = 'Sent. If you do not hear back, email contact@motivational-quote.org';
+        f.reset();
+        return;
+      }
+    } catch (_) {}
+    status.textContent = 'Could not submit here — opening your email app instead.';
+    mailtoFallback(fd);
   });
 }
 </script>
