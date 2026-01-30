@@ -52,7 +52,22 @@
         <input type="submit" value="Send Message" class="quote-button" />
       </form>
     </section>
-  </main>
+  
+  <form id="contactForm" method="post" action="/api/contact" style="margin-top:16px;display:grid;gap:10px;max-width:520px;">
+    <label>
+      <div style="font-weight:600;margin-bottom:4px;">Email</div>
+      <input name="email" type="email" autocomplete="email" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:10px;" />
+    </label>
+    <label>
+      <div style="font-weight:600;margin-bottom:4px;">Message</div>
+      <textarea name="message" required rows="6" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:10px;"></textarea>
+    </label>
+    <div class="cf-turnstile" data-sitekey="REPLACE_WITH_TURNSTILE_SITEKEY"></div>
+    <button type="submit" style="padding:10px 14px;border-radius:10px;border:0;background:#2563eb;color:#fff;font-weight:700;">Send</button>
+    <p id="contactStatus" style="color:#6b7280;font-size:14px;"></p>
+  </form>
+
+</main>
 
   <footer>
     <p>&copy; <span id="year"></span> Motivational Quotes. All rights reserved.</p>
@@ -60,5 +75,22 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+<script>
+const f=document.getElementById('contactForm');
+if(f){
+  f.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const status=document.getElementById('contactStatus');
+    status.textContent='Sending…';
+    const fd=new FormData(f);
+    const r=await fetch('/api/contact', {method:'POST', body: fd});
+    const j=await r.json().catch(()=>({ok:false}));
+    status.textContent=(r.ok && j.ok)?'Sent. If you do not hear back, email contact@motivational-quote.org':'Failed. Please email contact@motivational-quote.org';
+    if(r.ok && j.ok) f.reset();
+  });
+}
+</script>
+
 </body>
 </html>
