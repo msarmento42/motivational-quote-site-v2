@@ -1,0 +1,30 @@
+name: "MAINTENANCE"
+description: "Bug fix, broken link, dependency bump, typo, or small cleanup."
+labels: ["agios:maintenance"]
+body:
+  - type: textarea
+    id: what_is_broken
+    attributes:
+      label: "What is broken or outdated?"
+      description: "Be specific. Include file paths, URLs, or error messages."
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: "Fix description"
+      description: "What should change and how? Be precise enough that Codex needs no clarification."
+    validations:
+      required: true
+  - type: input
+    id: affected_files
+    attributes:
+      label: "Expected files affected"
+      description: "List files that should change. Exclude .agios/, .github/, vercel.json, *.env*"
+  - type: textarea
+    id: verification
+    attributes:
+      label: "Verification"
+      description: "How do we confirm it's fixed without breaking anything?"
+    validations:
+      required: true

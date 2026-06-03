@@ -1,0 +1,62 @@
+name: "EXPERIMENT"
+description: "Higher-uncertainty work with a falsifiable hypothesis. Requires human approval before Codex is triggered."
+labels: ["agios:experiment"]
+body:
+  - type: input
+    id: metric
+    attributes:
+      label: "Target metric"
+    validations:
+      required: true
+  - type: input
+    id: baseline
+    attributes:
+      label: "Current baseline"
+    validations:
+      required: true
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: "Hypothesis"
+      description: "If we do X, then Y will happen because [mechanism]."
+    validations:
+      required: true
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: "Mechanism"
+      description: "Why should this work? What causal chain do we believe?"
+    validations:
+      required: true
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: "Confidence"
+      options: ["low", "medium", "high"]
+    validations:
+      required: true
+  - type: textarea
+    id: falsification
+    attributes:
+      label: "Falsification conditions"
+      description: "What would prove this wrong? When do we call it a failure?"
+    validations:
+      required: true
+  - type: input
+    id: timeframe
+    attributes:
+      label: "Evaluation window"
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: "Rollback plan"
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: "Implementation notes"
+    validations:
+      required: true

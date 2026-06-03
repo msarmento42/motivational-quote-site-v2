@@ -1,0 +1,33 @@
+name: "RESEARCH"
+description: "Investigation or information gathering. No code expected."
+labels: ["agios:research"]
+body:
+  - type: input
+    id: objective
+    attributes:
+      label: "Objective"
+      description: "What question does this research answer?"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: "Context"
+      description: "What prompted this? What do we already know?"
+  - type: textarea
+    id: output_format
+    attributes:
+      label: "Expected output"
+      description: "What artifact exists when this is done? (decision_log entry, list of options, recommendation, etc.)"
+    validations:
+      required: true
+  - type: textarea
+    id: follow_on
+    attributes:
+      label: "Likely follow-on issues"
+      description: "What issues might this research unlock?"
+  - type: input
+    id: timebox
+    attributes:
+      label: "Time box"
+      description: "Max time to spend (e.g. '1 hour', 'one session')"

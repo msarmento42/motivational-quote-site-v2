@@ -1,0 +1,29 @@
+{
+  "id": "motivational-quote",
+  "name": "Motivational Quote",
+  "repo": "msarmento42/motivational-quote-site-v2",
+  "deploy_url": "https://motivational-quote.org",
+  "production_url": "https://motivational-quote.org",
+  "priority": "medium",
+  "status": "active",
+  "type": "income-site",
+  "tech_stack": ["HTML", "CSS", "JavaScript"],
+  "objective": "Motivational quote and self-improvement content site — ad revenue",
+  "success_metrics": [
+    "organic sessions per week",
+    "pages per session",
+    "ad RPM"
+  ],
+  "health": "green",
+  "last_activity": "2026-01-30",
+  "last_audit": null,
+  "next_review": "2026-06-07",
+  "human_approval_required_for": [
+    "vision changes",
+    "monetization changes",
+    "ads.txt changes",
+    "structural HTML changes",
+    "new JS libraries"
+  ],
+  "notes": "Onboarded 2026-06-02. Static HTML site — no build step. ads.txt must never be modified."
+}

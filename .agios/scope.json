@@ -1,0 +1,18 @@
+{
+  "allowed_paths": [
+    "*.html",
+    "*.css",
+    "*.js",
+    "content/**",
+    "data/**",
+    "README.md"
+  ],
+  "blocked_paths": [
+    ".github/**",
+    ".agios/**",
+    "ads.txt",
+    "*.env*"
+  ],
+  "max_files_changed": 15,
+  "note": "ads.txt is sacred — never modify. Do not touch CI config or AGIOS config."
+}

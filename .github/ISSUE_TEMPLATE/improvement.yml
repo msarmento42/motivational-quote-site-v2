@@ -1,0 +1,50 @@
+name: "IMPROVEMENT"
+description: "A change intended to measurably improve a metric or outcome."
+labels: ["agios:improvement"]
+body:
+  - type: input
+    id: metric
+    attributes:
+      label: "Target metric"
+      description: "What metric are we trying to move? Be specific and measurable."
+    validations:
+      required: true
+  - type: input
+    id: baseline
+    attributes:
+      label: "Current baseline"
+      description: "Current value and when it was measured."
+    validations:
+      required: true
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: "Hypothesis"
+      description: "If we do X, then metric Y will change by Z because [mechanism]."
+    validations:
+      required: true
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: "Confidence"
+      options: ["low", "medium", "high"]
+    validations:
+      required: true
+  - type: input
+    id: timeframe
+    attributes:
+      label: "Evaluation timeframe"
+      description: "When can we check if the outcome happened? e.g. '2 weeks after deploy'"
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: "Implementation notes"
+      description: "What specifically should Codex build? Precise enough to need no clarification."
+    validations:
+      required: true
+  - type: input
+    id: affected_files
+    attributes:
+      label: "Expected files affected"

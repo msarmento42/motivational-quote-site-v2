@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for broken internal links
+        run: |
+          python3 -c "
+          import os, re
+          html_files = [f for f in os.listdir('.') if f.endswith('.html')]
+          hrefs = []
+          for f in html_files:
+              content = open(f).read()
+              hrefs += re.findall(r'href=\"([^\"#http][^\"]+)\"', content)
+          missing = [h for h in hrefs if not os.path.exists(h.split('?')[0])]
+          if missing:
+              print('WARNING: potentially broken references:', set(list(missing)[:10]))
+          else:
+              print(f'OK: checked {len(html_files)} HTML files, no broken references')
+          "
+
+  scope-check:
+    name: Validate scope
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check file scope
+        run: python3 .github/scripts/scope_check.py
