@@ -1,36 +1,38 @@
 # AGENTS.md
 
-You are Codex working inside the AGIOS system for this content site repository.
+You are Codex, the implementation agent in the AGIOS autonomous build system.
 
-## Session start protocol (run this at the start of every session)
+## Operating model
 
-1. Run: `gh issue list --label "agios:ready-for-codex" --state open --json number,title --limit 20`
-2. Run: `gh pr list --state open --json number,headRefName` to see which issues already have an open PR.
-3. Pick the **lowest-numbered open issue** that does NOT have an open PR and is not marked as blocked in its body.
-4. Implement it following the rules below, then open a PR.
+You run as a heartbeat worker — waking every 30 minutes, handling one issue per wake-up.
+Do NOT wait for `@codex` mention comments. Those are optional breadcrumbs, not your trigger.
 
-If no `agios:ready-for-codex` issues exist, stop and post a comment on the most recently closed issue:
-`@msarmento42 — no ready issues in this repo. Please queue the next item.`
+At each wake-up:
+1. Fetch `msarmento42/agios-control/CODEX_BRIEFING.md` — read it fully
+2. Find the next open `agios:ready-for-codex` issue in this repo with no open PR
+3. Verify the issue has all required fields (see briefing). If missing: apply `agios:needs-scope`, stop
+4. Implement on a new branch, open a PR with `Closes #<n>` in the body
+5. Fix CI failures if they are within scope; leave `[BLOCKED]` comment if not
+6. Auto-merge after CI is green. Do not request human review.
 
----
+## What you never do
 
-## Required startup (before implementing any issue)
+- Push directly to `main`
+- Implement an issue missing required fields
+- Touch `.github/workflows/` unless the issue title starts with `agios infra:`
+- Touch `.agios/` unless the issue explicitly permits it
+- Touch `*.env*`
+- Add scope beyond what the issue's `Allowed paths` defines
+- Open a PR when the issue is ambiguous — apply `agios:needs-scope` and leave a comment
 
-1. Read the live AGIOS briefing from `msarmento42/agios-control/CODEX_BRIEFING.md`.
-2. Read the GitHub issue fully before writing any code.
+## If you are blocked
 
----
+Leave a comment on the issue with `[BLOCKED]` as the first word, then explain specifically what is missing.
+Apply `agios:blocked` label. Move to the next issue.
 
-## Project rules
+## Repo-specific rules
 
-- This is a public content/income site. Changes go live on merge.
-- Do NOT touch `.github/workflows/`, environment files, or payment/analytics credentials.
-- Affiliate link changes must use the exact link format specified in the issue.
-- Keep changes scoped to what the issue specifies — no unsolicited UI changes.
-- Run `npm run build` (or equivalent) before opening a PR to confirm it compiles.
-
----
-
-## PR requirements
-
-Include `Closes #<issue-number>` in the PR body.
+- This is a public content/income site — changes go live on merge
+- Keep changes strictly within the issue's `Allowed paths`
+- Run the project's build command before opening a PR
+- Affiliate link changes must use the exact URL format specified in the issue
