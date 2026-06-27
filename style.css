@@ -94,6 +94,64 @@ header {
     background-color: #005fa3;
 }
 
+.save-button {
+    background-color: #fff;
+    border: 2px solid #007acc;
+    border-radius: 4px;
+    color: #007acc;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.save-button:hover {
+    background-color: #007acc;
+    color: #fff;
+}
+
+.favorites-section {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.favorite-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ececec;
+}
+
+.favorite-row p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.remove-button {
+    background-color: transparent;
+    border: none;
+    color: #ff0000;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.remove-button:hover {
+    color: #cc0000;
+}
+
 .content {
     max-width: 800px;
     margin: 0 auto;
