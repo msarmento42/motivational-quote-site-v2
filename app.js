@@ -1,13 +1,11 @@
 <script>
-/**
- * Quote loader: STRICT public-domain only, no external APIs.
- * Loads from /data/quotes-public-domain.json and picks a random quote.
- * Shows “— Author” attribution. If file missing, uses a tiny in-file fallback.
- */
 (async () => {
-  const quoteText   = document.getElementById('quote-text');
+  const quoteText = document.getElementById('quote-text');
   const quoteAuthor = document.getElementById('quote-author');
-  const btn         = document.getElementById('new-quote-btn');
+  const newQuoteBtn = document.getElementById('new-quote-btn');
+  const saveQuoteBtn = document.getElementById('save-quote-btn');
+  const favoritesSection = document.getElementById('favorites-section');
+  const favoritesList = document.getElementById('favorites-list');
 
   const fallback = [
     { text: "Go confidently in the direction of your dreams. Live the life you have imagined.", author: "Henry David Thoreau" },
@@ -18,7 +16,9 @@
   ];
 
   let quotes = [];
-  async function load() {
+  let favorites = [];
+
+  async function loadQuotes() {
     try {
       const res = await fetch('/data/quotes-public-domain.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('quotes json not found');
@@ -29,14 +29,87 @@
     }
   }
 
-  function showRandom() {
+  function loadFavorites() {
+    try {
+      const storedFavorites = localStorage.getItem('mq_favorites');
+      favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+      renderFavorites();
+    } catch (e) {
+      console.error('Failed to load favorites from localStorage', e);
+      favorites = [];
+    }
+  }
+
+  function saveFavorites() {
+    try {
+      localStorage.setItem('mq_favorites', JSON.stringify(favorites));
+    } catch (e) {
+      console.error('Failed to save favorites to localStorage', e);
+    }
+  }
+
+  function toggleFavorite() {
+    const currentQuote = {
+      text: quoteText.textContent,
+      author: quoteAuthor.textContent
+    };
+
+    const index = favorites.findIndex(fav => fav.text === currentQuote.text && fav.author === currentQuote.author);
+    if (index === -1) {
+      favorites.push(currentQuote);
+      saveQuoteBtn.textContent = "✓ Saved";
+    } else {
+      favorites.splice(index, 1);
+      saveQuoteBtn.textContent = "❤ Save Quote";
+    }
+    saveFavorites();
+    renderFavorites();
+  }
+
+  function renderFavorites() {
+    favoritesList.innerHTML = '';
+    if (favorites.length === 0) {
+      favoritesSection.style.display = 'none';
+      return;
+    }
+
+    favoritesSection.style.display = 'block';
+    favorites.forEach((fav, index) => {
+      const row = document.createElement('div');
+      row.className = 'favorite-row';
+
+      const text = document.createElement('p');
+      text.textContent = `${fav.text} ${fav.author}`;
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = '×';
+      removeBtn.className = 'remove-button';
+      removeBtn.addEventListener('click', () => {
+        favorites.splice(index, 1);
+        saveFavorites();
+        renderFavorites();
+      });
+
+      row.appendChild(text);
+      row.appendChild(removeBtn);
+      favoritesList.appendChild(row);
+    });
+  }
+
+  async function showRandom() {
     const q = quotes[Math.floor(Math.random() * quotes.length)];
     quoteText.textContent = q.text;
     quoteAuthor.textContent = q.author ? `— ${q.author}` : '';
+
+    const isFavorite = favorites.some(fav => fav.text === q.text && fav.author === q.author);
+    saveQuoteBtn.textContent = isFavorite ? "✓ Saved" : "❤ Save Quote";
   }
 
-  await load();
+  await loadQuotes();
+  loadFavorites();
   showRandom();
-  if (btn) btn.addEventListener('click', showRandom);
+
+  newQuoteBtn.addEventListener('click', showRandom);
+  saveQuoteBtn.addEventListener('click', toggleFavorite);
 })();
 </script>
