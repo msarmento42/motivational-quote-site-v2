@@ -191,3 +191,47 @@ footer {
     max-width: 728px;
     text-align: center;
 }
+
+/* Beehiiv CTA Section */
+.beehiiv-cta-section {
+    background-color: #f0f8ff; /* Light blue background */
+    border: 1px solid #d0e8ff; /* Matching border */
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 3rem auto; /* Spacing from content, auto for centering */
+    max-width: 600px; /* Limit width for better appearance */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.beehiiv-cta-section h3 {
+    font-size: 1.8rem;
+    color: #2c3e50; /* Darker text for prominence */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.beehiiv-cta-section p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.beehiiv-subscribe-button {
+    display: inline-block;
+    background-color: #4f46e5; /* Primary brand color */
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.beehiiv-subscribe-button:hover {
+    background-color: #3b30c4; /* Slightly darker on hover */
+    transform: translateY(-2px);
+}
