@@ -235,3 +235,28 @@ footer {
     background-color: #3b30c4; /* Slightly darker on hover */
     transform: translateY(-2px);
 }
+
+/* Styles for the new saved quotes cards */
+.saved-quote-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem; /* Spacing between cards */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.saved-quote-card p {
+    margin: 0;
+    flex-grow: 1;
+    font-size: 1rem;
+}
+
+.empty-state {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 1rem;
+}
