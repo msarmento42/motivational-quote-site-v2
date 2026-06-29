@@ -29,7 +29,7 @@
     <section class="content">
       <h1>Blog</h1>
       <p>Explore our collection of motivational articles to inspire and empower you.</p>
-      <ul class="post-list">
+      <ul class="post-list" id="posts-container">
         <li><a href="achieving-work-life-balance.html">Achieving Work-Life Balance in a Busy World</a></li>
         <li><a href="art-of-letting-go.html">The Art of Letting Go and Moving On</a></li>
         <li><a href="benefits-of-journaling.html">The Benefits of Journaling for Personal Growth</a></li>
@@ -55,6 +55,7 @@
         <li><a href="goal-setting.html">Goal Setting for Success</a></li>
         <li><a href="overcoming-setbacks.html">Overcoming Setbacks and Building Resilience</a></li>
       </ul>
+      <div id="pagination-controls"></div>
     </section>
   </main>
 
@@ -63,6 +64,72 @@
   </footer>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const postsContainer = document.getElementById('posts-container');
+        if (!postsContainer) {
+            console.error('Posts container not found.');
+            return;
+        }
+
+        const postItems = Array.from(postsContainer.children);
+        const PAGE_SIZE = 20;
+        let currentPage = 1;
+        const totalPages = Math.ceil(postItems.length / PAGE_SIZE);
+
+        const paginationControls = document.getElementById('pagination-controls');
+        if (!paginationControls) {
+            console.error('Pagination controls container not found.');
+            return;
+        }
+
+        function showPage(pageNumber) {
+            currentPage = Math.max(1, Math.min(pageNumber, totalPages)); // Ensure pageNumber is within bounds
+            const startIndex = (currentPage - 1) * PAGE_SIZE;
+            const endIndex = Math.min(startIndex + PAGE_SIZE, postItems.length);
+
+            postItems.forEach((item, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    item.style.display = ''; // Show item
+                } else {
+                    item.style.display = 'none'; // Hide item
+                }
+            });
+
+            renderPaginationControls();
+        }
+
+        function renderPaginationControls() {
+            paginationControls.innerHTML = ''; // Clear existing controls
+
+            if (totalPages <= 1) { // No need for pagination if only one page or less
+                return;
+            }
+
+            const prevButton = document.createElement('button');
+            prevButton.textContent = 'Previous';
+            prevButton.classList.add('pagination-button');
+            prevButton.disabled = currentPage === 1;
+            prevButton.addEventListener('click', () => showPage(currentPage - 1));
+            paginationControls.appendChild(prevButton);
+
+            const pageLabel = document.createElement('span');
+            pageLabel.textContent = `Page ${currentPage} of ${totalPages}`;
+            pageLabel.classList.add('pagination-label');
+            paginationControls.appendChild(pageLabel);
+
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Next';
+            nextButton.classList.add('pagination-button');
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.addEventListener('click', () => showPage(currentPage + 1));
+            paginationControls.appendChild(nextButton);
+        }
+
+        // Initial load
+        showPage(1);
+    });
   </script>
 </body>
 </html>
