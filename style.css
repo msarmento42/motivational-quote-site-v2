@@ -243,3 +243,63 @@ footer {
     padding: 16px;
     margin: 24px 0;
 }
+
+.mid-article-subscribe {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 24px 0;
+}
+: center; /* Center the controls */
+}
+
+.pagination-button {
+    background-color: #007acc; /* Using existing site button color */
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: #005fa3; /* Darker on hover */
+}
+
+.pagination-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.pagination-label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Styles for the new saved quotes cards */
+.saved-quote-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem; /* Spacing between cards */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.saved-quote-card p {
+    margin: 0;
+    flex-grow: 1;
+    font-size: 1rem;
+}
+
+.empty-state {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 1rem;
+}
