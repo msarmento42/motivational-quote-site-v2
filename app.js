@@ -6,6 +6,9 @@
   const saveQuoteBtn = document.getElementById('save-quote-btn');
   const favoritesSection = document.getElementById('favorites-section');
   const favoritesList = document.getElementById('favorites-list');
+  // New elements for saved quotes section
+  const savedQuotesSection = document.getElementById('saved-quotes-section');
+  const savedList = document.getElementById('saved-list');
 
   const fallback = [
     { text: "Go confidently in the direction of your dreams. Live the life you have imagined.", author: "Henry David Thoreau" },
@@ -34,6 +37,7 @@
       const storedFavorites = localStorage.getItem('mq_favorites');
       favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
       renderFavorites();
+      renderSavedQuotes(); // Call new render function
     } catch (e) {
       console.error('Failed to load favorites from localStorage', e);
       favorites = [];
@@ -64,6 +68,7 @@
     }
     saveFavorites();
     renderFavorites();
+    renderSavedQuotes(); // Call new render function
   }
 
   function renderFavorites() {
@@ -88,11 +93,45 @@
         favorites.splice(index, 1);
         saveFavorites();
         renderFavorites();
+        renderSavedQuotes(); // Update new section as well
       });
 
       row.appendChild(text);
       row.appendChild(removeBtn);
       favoritesList.appendChild(row);
+    });
+  }
+
+  // New function to render saved quotes in the dedicated section
+  function renderSavedQuotes() {
+    savedList.innerHTML = '';
+    if (favorites.length === 0) {
+      savedQuotesSection.style.display = 'none';
+      savedList.innerHTML = '<p class="empty-state">No saved quotes yet — click ♥ on any quote to save one.</p>';
+      return;
+    }
+
+    savedQuotesSection.style.display = 'block';
+    favorites.forEach((fav, index) => {
+      const card = document.createElement('div');
+      card.className = 'saved-quote-card';
+
+      const text = document.createElement('p');
+      text.textContent = `${fav.text} ${fav.author}`;
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = '×';
+      removeBtn.className = 'remove-button'; // Reusing existing remove-button style
+      removeBtn.addEventListener('click', () => {
+        favorites.splice(index, 1);
+        saveFavorites();
+        renderFavorites(); // Update old section
+        renderSavedQuotes(); // Update new section
+      });
+
+      card.appendChild(text);
+      card.appendChild(removeBtn);
+      savedList.appendChild(card);
     });
   }
 
@@ -106,7 +145,7 @@
   }
 
   await loadQuotes();
-  loadFavorites();
+  loadFavorites(); // This now calls both render functions
   showRandom();
 
   newQuoteBtn.addEventListener('click', showRandom);
