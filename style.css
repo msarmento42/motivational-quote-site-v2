@@ -236,13 +236,14 @@ footer {
     transform: translateY(-2px);
 }
 
-/* Pagination styles */
-#pagination-controls {
-    display: flex;
-    gap: 8px;
-    margin-top: 16px;
-    align-items: center;
-    justify-content: center; /* Center the controls */
+.mid-article-subscribe {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 24px 0;
+}
+: center; /* Center the controls */
 }
 
 .pagination-button {
