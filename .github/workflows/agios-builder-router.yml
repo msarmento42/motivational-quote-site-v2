@@ -1,27 +1,44 @@
-# AGIOS Builder Router caller — motivational-quote-site-v2 repo
-name: AGIOS Builder Router (caller)
+# AGIOS Builder Router — self-contained (reverted from cross-repo reusable
+# workflow on 2026-07-01). Root cause: agios-control is a private repo, and
+# GitHub will not resolve `uses: msarmento42/agios-control/...@main` from
+# another private repo on this plan -- every run since the reusable-workflow
+# migration (this morning) failed instantly with 0 jobs and
+# "workflow was not found" (confirmed via a live workflow_dispatch test).
+# The earlier fromJSON(job_timeout_minutes) bug was real but not the actual
+# blocker. This inlines the job body directly here (matching how it worked
+# before today's refactor) until agios-control access is resolved another way
+# (e.g. making it public, or upgrading to a plan that supports private
+# cross-repo reusable workflows).
+name: AGIOS Builder Router
+
 on:
   workflow_dispatch:
     inputs:
-      issue_number: { required: true }
-      builder_order: { required: false, default: "" }
+      issue_number:
+        required: true
+      builder_order:
+        required: false
+        default: ""
   issues:
     types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  models: read
+
+concurrency:
+  group: agios-issue-${{ github.repository }}-${{ github.event.issue.number || inputs.issue_number }}
+  cancel-in-progress: false
+
 jobs:
   route:
     if: >-
       github.event_name != 'issues' ||
       github.event.label.name == 'agios:ready-for-codex'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-      models: read
-    concurrency:
-      group: agios-issue-${{ github.event.issue.number || inputs.issue_number }}
-      cancel-in-progress: false
+    timeout-minutes: 25
     steps:
       - name: Resolve issue number
         id: issue
@@ -44,14 +61,14 @@ jobs:
           repository: msarmento42/agios-control
           path: agios-control
           fetch-depth: 1
-          token: ${{ secrets.AGIOS_CONTROL_TOKEN }}
+          token: ${{ secrets.AGIOS_CONTROL_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Route builder
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.AGIOS_CONTROL_TOKEN || secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_MODELS_TOKEN || secrets.GITHUB_TOKEN }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
@@ -60,6 +77,8 @@ jobs:
           CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
           CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           python agios-control/scripts/agios_builder_router.py \
             --issue-number "${{ steps.issue.outputs.number }}" \
