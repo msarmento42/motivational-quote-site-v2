@@ -85,6 +85,22 @@
       color: #9ca3af;
       text-align: center;
     }
+    .path-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+    .path-card {
+      background: #fff;
+      border: 1px solid #e0e7ff;
+      border-radius: 12px;
+      padding: 1.1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .path-card h3 { margin: 0 0 0.4rem; color: #312e81; font-size: 1rem; }
+    .path-card p { margin: 0 0 0.85rem; color: #4b5563; font-size: 0.92rem; line-height: 1.5; }
+    .path-card a { color: #4f46e5; font-weight: 700; text-decoration: none; }
+    .path-card a:hover { text-decoration: underline; }
     footer { text-align: center; padding: 1.5rem 1rem; color: #9ca3af; font-size: 0.85rem; border-top: 1px solid #e5e7eb; margin-top: 2rem; }
     footer a { color: #6b7280; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
@@ -121,6 +137,27 @@
           <a href="https://www.amazon.com/dp/0735211299?tag=mq061-20" rel="noopener sponsored" class="primary">Build habits</a>
           <a href="https://www.amazon.com/dp/1455586692?tag=mq061-20" rel="noopener sponsored" class="secondary">Improve focus</a>
           <a href="subscribe.html" class="secondary">Get weekly prompts</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources-section">
+      <h2>Choose by outcome</h2>
+      <div class="path-grid">
+        <div class="path-card">
+          <h3>Build discipline</h3>
+          <p>Use habit design, small wins, and weekly reflection to make consistency easier.</p>
+          <a href="blog/atomic-habits-key-lessons.html">Read the habit guide →</a>
+        </div>
+        <div class="path-card">
+          <h3>Improve focus</h3>
+          <p>Start with deep work principles, remove shallow distractions, and protect attention.</p>
+          <a href="blog/deep-work-strategies.html">Read focus strategies →</a>
+        </div>
+        <div class="path-card">
+          <h3>Stay accountable</h3>
+          <p>Get a simple weekly prompt that turns motivation into a repeatable practice.</p>
+          <a href="subscribe.html">Join the newsletter →</a>
         </div>
       </div>
     </section>
