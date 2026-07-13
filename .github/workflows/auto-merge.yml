@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows: ["CI"]
     types: [completed]
-  pull_request:
-    types: [closed]
 
 permissions:
   contents: write
@@ -16,13 +14,13 @@ jobs:
   policy-gate:
     name: Policy-gated auto-merge
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       REPO: ${{ github.repository }}
       RUN_ID: ${{ github.event.workflow_run.id }}
     steps:
-      - name: Check gates and enable auto-merge
+      - name: Check gates, enable auto-merge, and close the linked issue
         run: |
           # Get PR number from the workflow run
           PR=$(gh api "repos/$REPO/actions/runs/$RUN_ID" \
@@ -70,35 +68,36 @@ jobs:
             --auto \
             --squash
 
-  close-linked-issue:
-    name: Close linked issue on merge
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == true }}
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      REPO: ${{ github.repository }}
-      PR: ${{ github.event.pull_request.number }}
-    steps:
-      - name: Explicitly close the linked issue
-        run: |
-          # GitHub's implicit "Closes #N" auto-close-on-merge is unreliable for
-          # PRs merged via `gh pr merge --auto` under GITHUB_TOKEN, even with
-          # issues: write granted (confirmed empirically: a throwaway PR with
-          # "Closes #N" in its body merged cleanly via auto-merge but left the
-          # issue open, while the same merge performed by a full-scope PAT
-          # closed it instantly). Rather than depend on that platform behavior,
-          # close explicitly here, triggered by the PR actually merging,
-          # regardless of who/what performed the merge.
-          PR_BODY=$(gh pr view "$PR" --repo "$REPO" --json body --jq '.body')
-          ISSUE=$(echo "$PR_BODY" | grep -ioE "closes?\s+#[0-9]+" | grep -oE "[0-9]+" | head -1)
+          # GitHub's implicit "Closes #N" auto-close-on-merge is unreliable
+          # for PRs merged via `gh pr merge --auto` under GITHUB_TOKEN, even
+          # with issues: write granted (confirmed empirically: a throwaway
+          # PR merged cleanly this way but left its linked issue open, while
+          # an identical merge performed directly with a full-scope PAT
+          # closed it instantly). A separate job listening for
+          # `pull_request: closed` doesn't fix this either — GitHub Actions
+          # does not trigger new workflow runs from events caused by the
+          # default GITHUB_TOKEN, so that event never arrives. Instead,
+          # poll for the merge to land within *this* run (whose own trigger
+          # is workflow_run, not GITHUB_TOKEN-caused, so it isn't subject to
+          # that suppression) and close the issue explicitly once it does.
+          echo "Waiting for PR #$PR to merge..."
+          MERGED="false"
+          for i in $(seq 1 24); do
+            MERGED=$(gh pr view "$PR" --repo "$REPO" --json merged --jq '.merged')
+            if [ "$MERGED" = "true" ]; then
+              echo "PR #$PR merged."
+              break
+            fi
+            sleep 5
+          done
 
-          if [ -z "$ISSUE" ]; then
-            echo "No 'Closes #N' in PR #$PR body — nothing to close"
+          if [ "$MERGED" != "true" ]; then
+            echo "PR #$PR has not merged after ~2 minutes of polling — leaving issue #$ISSUE open for now (backlog hygiene sweep will catch it if it merges later)"
             exit 0
           fi
 
-          STATE=$(gh issue view "$ISSUE" --repo "$REPO" --json state --jq '.state' 2>/dev/null)
-          if [ "$STATE" = "CLOSED" ]; then
+          ISSUE_STATE=$(gh issue view "$ISSUE" --repo "$REPO" --json state --jq '.state' 2>/dev/null)
+          if [ "$ISSUE_STATE" = "CLOSED" ]; then
             echo "Issue #$ISSUE already closed — nothing to do"
             exit 0
           fi
