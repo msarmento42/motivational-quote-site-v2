@@ -81,18 +81,18 @@ jobs:
           # is workflow_run, not GITHUB_TOKEN-caused, so it isn't subject to
           # that suppression) and close the issue explicitly once it does.
           echo "Waiting for PR #$PR to merge..."
-          MERGED="false"
+          PR_STATE="OPEN"
           for i in $(seq 1 24); do
-            MERGED=$(gh pr view "$PR" --repo "$REPO" --json merged --jq '.merged')
-            if [ "$MERGED" = "true" ]; then
+            PR_STATE=$(gh pr view "$PR" --repo "$REPO" --json state --jq '.state')
+            if [ "$PR_STATE" = "MERGED" ]; then
               echo "PR #$PR merged."
               break
             fi
             sleep 5
           done
 
-          if [ "$MERGED" != "true" ]; then
-            echo "PR #$PR has not merged after ~2 minutes of polling — leaving issue #$ISSUE open for now (backlog hygiene sweep will catch it if it merges later)"
+          if [ "$PR_STATE" != "MERGED" ]; then
+            echo "PR #$PR has not merged after ~2 minutes of polling (state: $PR_STATE) — leaving issue #$ISSUE open for now (backlog hygiene sweep will catch it if it merges later)"
             exit 0
           fi
 
