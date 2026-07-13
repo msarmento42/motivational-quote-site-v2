@@ -1,1 +1,0 @@
-Isolation test: does a direct merge via my own full-scope PAT close the issue?
