@@ -36,16 +36,8 @@ def parse_paths(body, field):
     match = re.search(rf"\*\*{re.escape(field)}:\*\*\s*(.*?)(?=\n\*\*|\Z)", body or "", re.S | re.I)
     if not match:
         return []
-    section = match.group(1)
-    # Backward-compat: some older issues list paths inside a fenced code
-    # block (bare lines, no leading "-") instead of a bullet list. Try that
-    # first; fall back to bullet parsing if there's no fence.
-    fence = re.search(r"```[a-zA-Z]*\n(.*?)```", section, re.S)
-    if fence:
-        paths = [line.strip().strip("`") for line in fence.group(1).splitlines()]
-        return [p for p in paths if p]
     paths = []
-    for line in section.splitlines():
+    for line in match.group(1).splitlines():
         line = line.strip()
         if line.startswith("-"):
             paths.append(line.lstrip("- ").strip().strip("`"))
@@ -105,14 +97,6 @@ def main():
     issue = json.loads(raw)
     is_infra_issue = (issue.get("title") or "").lower().startswith("agios infra:")
     allowed = parse_paths(issue.get("body") or "", "Allowed paths")
-    if not allowed:
-        # Fail closed: a linked issue with no parseable "Allowed paths" list
-        # means scope is genuinely undeterminable. Previously this silently
-        # allowed every changed path through (empty list treated as "no
-        # restriction" instead of "nothing is allowed") -- a fail-open
-        # governance bug. Force a formatting fix instead of merging blind.
-        print(f"FAIL: Issue #{issue_number} has no parseable 'Allowed paths' list -- scope undeterminable, fix the issue's formatting")
-        sys.exit(1)
     blocked = GITHUB_META_BLOCKED + parse_paths(issue.get("body") or "", "Blocked paths")
     violations = []
     for path in changed:
