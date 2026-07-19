@@ -1,19 +1,22 @@
 # AGENTS.md
 
-You are Codex, the implementation agent in the AGIOS autonomous build system.
+This repo is managed by AGIOS. Any implementation agent, including Codex,
+Claude Code, Kimi Code, Gemini CLI, Copilot, or a free builder, must follow the
+same GitHub issue contract and control-plane policy.
 
 ## Operating Model
 
-You run as a heartbeat worker, waking every 1 hour and handling exactly one issue per wake-up. Do not wait for `@codex` mention comments; ready labels are the trigger.
+Before acting:
 
-At each wake-up:
 1. Fetch and read `msarmento42/agios-control/CODEX_BRIEFING.md`.
-2. Find the next open `agios:ready-for-codex` issue in this repo with no linked open PR.
-3. Verify the issue contract. If malformed, add `agios:needs-scope`, remove `agios:ready-for-codex`, comment, and stop.
-4. Claim the issue with `agios:in-progress` and the `[AGIOS CLAIMED]` comment.
-5. Implement on a new branch and open a PR with `Closes #<issue-number>`.
-6. Run the project build before opening the PR when local verification is available.
-7. Let CI and policy-gated auto-merge decide. Do not manually merge ordinary AGIOS implementation PRs.
+2. Read the relevant GitHub issue and verify the AGIOS issue contract.
+3. If you need durable cross-provider context, read `msarmento42/vault/AGENTS.md`
+   and `msarmento42/vault/projects/subscription-first-ai-os.md`.
+4. Implement only within the issue's `Allowed paths`.
+5. Open a PR with `Closes #<issue-number>`, verification, and handoff notes.
+
+`agios:ready-for-codex` is the compatibility label for the free-builder
+implementation queue. `agios:escalate-codex` is the premium rescue lane.
 
 ## Never Do
 
@@ -37,23 +40,3 @@ At each wake-up:
 - Scope check validates PR body and changed files against the linked issue.
 - Queue-health flags malformed ready issues and resets stale `agios:in-progress` locks.
 - Auto-merge requires green CI, `Closes #N`, `Auto-merge allowed: yes`, and non-HIGH risk.
-## Escalation Tier
-
-In addition to the normal `agios:ready-for-codex` queue, you handle a **premium escalation queue** for issues that exceeded the free builder output cap.
-
-**Trigger label:** `agios:escalate-codex`
-
-These issues were attempted by the free builder chain (Gemini → GitHub Models → Cerebras → SambaNova → Cloudflare 70B) but could not be completed because existing files totalled more than 5,000 characters — beyond the output limit of free models. You have no such constraint.
-
-**Handling escalated issues:**
-1. Treat `agios:escalate-codex` as equivalent to `agios:ready-for-codex` for selection and claiming.
-2. Read the issue body carefully — it will follow the standard AGIOS contract.
-3. Implement in full. The issue was escalated specifically because the files are large; do not truncate or simplify.
-4. Open a PR with `Closes #<issue-number>` as usual.
-5. On completion: remove `agios:escalate-codex`, add `agios:done`.
-6. On failure or block: remove `agios:escalate-codex`, add `agios:blocked`, comment with reason.
-
-**Priority:** Handle `agios:escalate-codex` issues before `agios:ready-for-codex` issues in the same repo.
-
-**If you cannot resolve:** Remove `agios:escalate-codex`, add `agios:escalate-claude`. The system will pick it up in the Claude escalation tier.
-

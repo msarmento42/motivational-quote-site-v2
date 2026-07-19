@@ -6,7 +6,7 @@ Extends global AGIOS CLAUDE.md in agios-control. Read that first.
 - **URL:** motivational-quote.org
 - **Type:** Content/quote site (income site — ads)
 - **Stack:** Static HTML, CSS, JavaScript (no framework)
-- **Deploy:** GitHub Pages or Netlify (check deployment settings)
+- **Deploy:** Vercel project `mq-task` serves production for motivational-quote.org
 
 ## What this site does
 Motivational quotes, articles, and daily inspiration content.

@@ -13,4 +13,4 @@
 <!-- MAINTENANCE / IMPROVEMENT / EXPERIMENT -->
 
 ---
-<!-- Claude will review this PR. IMPROVEMENT and EXPERIMENT PRs require human merge. -->
+<!-- AGIOS review/policy gates review this PR. IMPROVEMENT and EXPERIMENT PRs require human merge. -->
