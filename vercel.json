@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/editorial-policy",
+      "destination": "/editorial-standards.html"
+    }
+  ]
+}
