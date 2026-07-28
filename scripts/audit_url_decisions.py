@@ -17,8 +17,12 @@ ROOT = Path(__file__).resolve().parents[1]
 JSON_OUT = ROOT / "data/url-decisions.json"
 MD_OUT = ROOT / "docs/URL_DECISION_AUDIT.md"
 BASE = "https://motivational-quote.org"
-TRUST_FILES = {"about.html", "contact.html", "privacy.html", "terms.html", "editorial-policy.html"}
-UTILITY_FILES = {"index.html", "blog.html", "resources.html", "404.html"}
+TRUST_FILES = {
+    "about.html", "contact.html", "privacy.html", "terms.html",
+    "editorial-policy.html", "editorial-standards.html", "quote-sources.html",
+}
+UTILITY_FILES = {"index.html", "blog.html", "resources.html", "subscribe.html", "404.html"}
+NON_PUBLIC_HTML_PREFIXES = ("templates/", "replit_snapshot/")
 NON_CONTENT_PREFIXES = ("category-",)
 AFFILIATE_HOST_MARKERS = ("amazon.", "amzn.to", "shareasale", "impact.com", "partnerstack", "clickbank")
 PREFERRED_SALVAGE_PATHS = (
@@ -170,9 +174,9 @@ def page_record(path: Path, in_sitemap: set[str]) -> tuple[dict, list[str]]:
         "sitemap_presence": url_path in in_sitemap,
         "repeated_paragraph_count": 0,
         "repeated_paragraph_hashes": [],
-        "decision": None,
+        "public_url_disposition": None,
         "consolidate_to": None,
-        "decision_basis": "",
+        "disposition_basis": "",
         "proposed_requires_editorial_review": kind == "editorial" and indexable,
     }
     return record, parser.paragraphs
@@ -183,7 +187,19 @@ def stem(record: dict) -> str:
 
 
 def main() -> int:
-    html_paths = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
+    all_html_paths = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
+    html_paths = [
+        path for path in all_html_paths
+        if not path.relative_to(ROOT).as_posix().startswith(NON_PUBLIC_HTML_PREFIXES)
+    ]
+    repository_files = [
+        {
+            "path": path.relative_to(ROOT).as_posix(),
+            "repository_file_disposition": "retain-as-repository-artifact",
+            "disposition_basis": "Template or development snapshot; retain as a repository file but exclude from public URL decisions.",
+        }
+        for path in all_html_paths if path not in html_paths
+    ]
     sitemap = sitemap_urls()
     records: list[dict] = []
     page_paragraphs: dict[str, list[str]] = {}
@@ -221,23 +237,23 @@ def main() -> int:
 
     for record in records:
         if not record["indexable"]:
-            record["decision_basis"] = "Non-indexable/404 inventory entry; no production action proposed."
+            record["disposition_basis"] = "Non-indexable/404 inventory entry; no production action proposed."
         elif record["page_kind"] in {"trust", "utility"}:
-            record["decision"] = "keep"
-            record["decision_basis"] = "Deterministic trust/utility-page rule."
+            record["public_url_disposition"] = "keep"
+            record["disposition_basis"] = "Deterministic trust/utility-page rule."
         elif record["path"] in salvage_paths:
-            record["decision"] = "rewrite"
-            record["decision_basis"] = "Explicit preferred editorial salvage candidate; rewrite still requires human review."
+            record["public_url_disposition"] = "rewrite"
+            record["disposition_basis"] = "Explicit preferred editorial salvage candidate; rewrite still requires human review."
         else:
             candidates = [r for r in by_stem[stem(record)] if r["path"] in salvage_paths]
             if candidates:
                 destination = sorted(candidates, key=lambda r: r["path"])[0]
-                record["decision"] = "consolidate-to"
+                record["public_url_disposition"] = "consolidate-to"
                 record["consolidate_to"] = destination["url"]
-                record["decision_basis"] = "Root/blog duplicate proposed to consolidate into the explicitly preferred salvage destination; human review required."
+                record["disposition_basis"] = "Same-slug root/blog duplicate proposed to consolidate into the explicitly preferred salvage destination; human review required."
             else:
-                record["decision"] = "remove"
-                record["decision_basis"] = "Outside capped salvage set; proposed removal requires human review."
+                record["public_url_disposition"] = "remove"
+                record["disposition_basis"] = "Outside capped salvage set; proposed removal requires human review."
 
     title_prefixes: defaultdict[str, list[str]] = defaultdict(list)
     for record in editorial:
@@ -260,15 +276,26 @@ def main() -> int:
         if len(members) >= 2:
             clusters.append({"topic": topic, "count": len(members), "paths": sorted(members)})
 
-    decisions = Counter(r["decision"] or "not-applicable" for r in records)
+    decisions = Counter(r["public_url_disposition"] or "not-applicable" for r in records)
     url_map = {r["url"]: r for r in records}
     assert len(records) == len(html_paths) == len({r["path"] for r in records})
+    assert len(records) == len({r["url"] for r in records}), "Every public URL must appear exactly once"
+    assert len(all_html_paths) == len(records) + len(repository_files)
+    assert not {r["path"] for r in records} & {r["path"] for r in repository_files}
+    assert {r["path"] for r in repository_files} == {
+        "templates/post.html", "replit_snapshot/2026-01-29/client/index.html"
+    }
+    assert all(r["public_url_disposition"] == "keep" for r in records if r["path"] in {
+        "editorial-standards.html", "quote-sources.html", "subscribe.html"
+    })
     assert len(salvage) <= 15
-    assert all(r["decision"] in {"keep", "rewrite", "consolidate-to", "remove"} for r in editorial)
+    assert all(r["public_url_disposition"] in {"keep", "rewrite", "consolidate-to", "remove"} for r in editorial)
+    assert sum(decisions.values()) == len(records)
     for record in records:
-        if record["decision"] == "consolidate-to":
+        if record["public_url_disposition"] == "consolidate-to":
             assert record["consolidate_to"] in url_map
-            assert url_map[record["consolidate_to"]]["decision"] in {"keep", "rewrite"}
+            assert url_map[record["consolidate_to"]]["public_url_disposition"] in {"keep", "rewrite"}
+            assert stem(record) == stem(url_map[record["consolidate_to"]]), "Consolidations must be intent-equivalent same-slug duplicates"
 
     stop_loss = {
         "day_30": "After approved consolidation ships: stop new publishing if Search Console has <50 organic impressions across salvage pages OR analytics has <10 organic sessions; validate indexing and tracking before further investment.",
@@ -276,11 +303,12 @@ def main() -> int:
         "day_90": "Exit the content-site strategy (retain only utility/trust pages or sell/park the domain) if salvage pages have <500 cumulative organic impressions, <25 organic clicks, and $0 verified revenue.",
     }
     manifest = {
-        "schema_version": 1,
-        "scope": "review-only inventory; no production mutation",
+        "schema_version": 2,
+        "scope": "review-only public URL dispositions plus separate repository-file inventory; no production mutation",
         "determinism_note": "Derived only from repository files with sorted traversal; no timestamps or network input.",
         "summary": {
-            "production_html_files": len(records),
+            "public_html_files": len(records),
+            "repository_only_html_files": len(repository_files),
             "indexable_editorial_urls": len(editorial),
             "salvage_editorial_urls": len(salvage),
             "decision_counts": dict(sorted(decisions.items())),
@@ -293,7 +321,8 @@ def main() -> int:
         "root_blog_duplicates": duplicate_groups,
         "manufactured_title_prefix_families": manufactured,
         "intent_cannibalization_clusters": clusters,
-        "inventory": records,
+        "public_url_inventory": records,
+        "repository_file_inventory": repository_files,
     }
     JSON_OUT.parent.mkdir(parents=True, exist_ok=True)
     MD_OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -303,7 +332,8 @@ def main() -> int:
         "# MQ URL Decision Audit", "",
         "> Review-only proposed classifications. No HTML, sitemap, redirect, analytics, AdSense, or affiliate destination was changed.", "",
         "## Portfolio summary", "",
-        f"- Production HTML files inventoried exactly once: **{len(records)}**",
+        f"- Public HTML files inventoried exactly once: **{len(records)}**",
+        f"- Repository-only HTML files excluded from URL decisions: **{len(repository_files)}**",
         f"- Indexable editorial URLs classified: **{len(editorial)}**",
         f"- Editorial salvage candidates (cap 15): **{len(salvage)}**",
         f"- Decisions: {', '.join(f'`{k}` {v}' for k, v in sorted(decisions.items()))}",
@@ -327,14 +357,17 @@ def main() -> int:
     lines += ["", "## 30/60/90-day stop-loss thresholds", ""]
     for label, criterion in stop_loss.items():
         lines.append(f"- **{label.replace('_', ' ').title()}:** {criterion}")
-    lines += ["", "## Decision inventory", "", "| URL | Kind | Indexable | Decision | Destination | Words | Sources | Repeated ¶ | Sitemap |", "|---|---|---:|---|---|---:|---:|---:|---:|"]
+    lines += ["", "## Repository-only files", "", "These files are inventoried separately and receive no public URL disposition.", ""]
+    for record in repository_files:
+        lines.append(f"- `{record['path']}` — `{record['repository_file_disposition']}`")
+    lines += ["", "## Public URL disposition inventory", "", "| URL | Kind | Indexable | Disposition | Destination | Words | Sources | Repeated ¶ | Sitemap |", "|---|---|---:|---|---|---:|---:|---:|---:|"]
     for record in records:
         values = dict(record)
         values["destination"] = record["consolidate_to"] or "—"
-        values["decision"] = record["decision"] or "not-applicable"
-        lines.append("| {url} | {page_kind} | {indexable} | {decision} | {destination} | {visible_word_count} | {credible_external_source_count} | {repeated_paragraph_count} | {sitemap_presence} |".format(**values))
+        values["disposition"] = record["public_url_disposition"] or "not-applicable"
+        lines.append("| {url} | {page_kind} | {indexable} | {disposition} | {destination} | {visible_word_count} | {credible_external_source_count} | {repeated_paragraph_count} | {sitemap_presence} |".format(**values))
     MD_OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"Audited {len(records)} HTML files; {len(editorial)} indexable editorial URLs; {len(salvage)} salvage candidates.")
+    print(f"Audited {len(records)} public HTML files and {len(repository_files)} repository-only HTML files; {len(editorial)} indexable editorial URLs; {len(salvage)} salvage candidates.")
     return 0
 
 

@@ -1,16 +1,17 @@
 {
-  "schema_version": 1,
-  "scope": "review-only inventory; no production mutation",
+  "schema_version": 2,
+  "scope": "review-only public URL dispositions plus separate repository-file inventory; no production mutation",
   "determinism_note": "Derived only from repository files with sorted traversal; no timestamps or network input.",
   "summary": {
-    "production_html_files": 293,
-    "indexable_editorial_urls": 278,
+    "public_html_files": 291,
+    "repository_only_html_files": 2,
+    "indexable_editorial_urls": 274,
     "salvage_editorial_urls": 15,
     "decision_counts": {
       "consolidate-to": 1,
-      "keep": 14,
+      "keep": 16,
       "not-applicable": 1,
-      "remove": 262,
+      "remove": 258,
       "rewrite": 15
     },
     "root_blog_duplicate_groups": 1,
@@ -327,7 +328,7 @@
       ]
     }
   ],
-  "inventory": [
+  "public_url_inventory": [
     {
       "path": "404.html",
       "url": "/404.html",
@@ -344,9 +345,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": null,
+      "public_url_disposition": null,
       "consolidate_to": null,
-      "decision_basis": "Non-indexable/404 inventory entry; no production action proposed.",
+      "disposition_basis": "Non-indexable/404 inventory entry; no production action proposed.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -365,9 +366,9 @@
       "sitemap_presence": true,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -386,9 +387,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -407,9 +408,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -428,9 +429,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -452,9 +453,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -476,9 +477,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -500,9 +501,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -524,9 +525,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -548,9 +549,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -580,9 +581,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -604,9 +605,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -628,9 +629,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -660,9 +661,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -684,9 +685,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -708,9 +709,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -732,9 +733,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -756,9 +757,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -788,9 +789,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -820,9 +821,9 @@
         "fb3a27473b75",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -845,9 +846,9 @@
         "466c0d1a9594",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -877,9 +878,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -909,9 +910,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -941,9 +942,9 @@
         "fb3a27473b75",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -965,9 +966,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -989,9 +990,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1013,9 +1014,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1037,9 +1038,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1069,9 +1070,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1093,9 +1094,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1125,9 +1126,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1157,9 +1158,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1189,9 +1190,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1213,9 +1214,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1237,9 +1238,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1261,9 +1262,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1293,9 +1294,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1318,9 +1319,9 @@
         "c980ba96110a",
         "cb45f8b85efb"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1351,9 +1352,9 @@
         "cb45f8b85efb",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1384,9 +1385,9 @@
         "fb3a27473b75",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1408,9 +1409,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1433,9 +1434,9 @@
         "bda14ca63ce1",
         "cb45f8b85efb"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1466,9 +1467,9 @@
         "cb45f8b85efb",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1490,9 +1491,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1522,9 +1523,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1546,9 +1547,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1570,9 +1571,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1594,9 +1595,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1618,9 +1619,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1642,9 +1643,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1666,9 +1667,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1698,9 +1699,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1722,9 +1723,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1746,9 +1747,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1770,9 +1771,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1802,9 +1803,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1834,9 +1835,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1858,9 +1859,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1882,9 +1883,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1906,9 +1907,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1930,9 +1931,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1954,9 +1955,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -1978,9 +1979,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2002,9 +2003,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2034,9 +2035,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2058,9 +2059,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2090,9 +2091,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2114,9 +2115,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2146,9 +2147,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2170,9 +2171,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2194,9 +2195,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2218,9 +2219,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2250,9 +2251,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2274,9 +2275,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2306,9 +2307,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2330,9 +2331,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2354,9 +2355,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2378,9 +2379,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2402,9 +2403,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2426,9 +2427,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2450,9 +2451,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2474,9 +2475,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2506,9 +2507,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2530,9 +2531,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2554,9 +2555,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2578,9 +2579,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2602,9 +2603,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2626,9 +2627,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2650,9 +2651,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2674,9 +2675,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2698,9 +2699,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2721,9 +2722,9 @@
       "repeated_paragraph_hashes": [
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2745,9 +2746,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2769,9 +2770,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2793,9 +2794,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2817,9 +2818,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2841,9 +2842,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2865,9 +2866,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2889,9 +2890,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2913,9 +2914,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2937,9 +2938,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2961,9 +2962,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -2985,9 +2986,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3010,9 +3011,9 @@
         "7b9aa3b7e80c",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3033,9 +3034,9 @@
       "repeated_paragraph_hashes": [
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3056,9 +3057,9 @@
       "repeated_paragraph_hashes": [
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3080,9 +3081,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3105,9 +3106,9 @@
         "bda14ca63ce1",
         "d5cbb13b00fd"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3129,9 +3130,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3153,9 +3154,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3177,9 +3178,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3201,9 +3202,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3225,9 +3226,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3250,9 +3251,9 @@
         "7b9aa3b7e80c",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3274,9 +3275,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3298,9 +3299,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3330,9 +3331,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3354,9 +3355,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3386,9 +3387,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3407,9 +3408,9 @@
       "sitemap_presence": true,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -3431,9 +3432,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3455,9 +3456,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3479,9 +3480,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3511,9 +3512,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3535,9 +3536,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3559,9 +3560,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3583,9 +3584,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3607,9 +3608,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3631,9 +3632,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3655,9 +3656,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3679,9 +3680,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3703,9 +3704,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3727,9 +3728,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3751,9 +3752,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3775,9 +3776,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3799,9 +3800,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3831,9 +3832,9 @@
         "c980ba96110a",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3855,9 +3856,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3887,9 +3888,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3919,9 +3920,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3943,9 +3944,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3967,9 +3968,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -3999,9 +4000,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4023,9 +4024,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4047,9 +4048,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4071,9 +4072,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4095,9 +4096,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4119,9 +4120,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4151,9 +4152,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4175,9 +4176,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4198,9 +4199,9 @@
       "repeated_paragraph_hashes": [
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4222,9 +4223,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4254,9 +4255,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4278,9 +4279,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4310,9 +4311,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4334,9 +4335,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4366,9 +4367,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4390,9 +4391,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4422,9 +4423,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4454,9 +4455,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4478,9 +4479,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4503,9 +4504,9 @@
         "a694ef87d7af",
         "d5cbb13b00fd"
       ],
-      "decision": "consolidate-to",
+      "public_url_disposition": "consolidate-to",
       "consolidate_to": "/overcoming-procrastination.html",
-      "decision_basis": "Root/blog duplicate proposed to consolidate into the explicitly preferred salvage destination; human review required.",
+      "disposition_basis": "Same-slug root/blog duplicate proposed to consolidate into the explicitly preferred salvage destination; human review required.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4528,9 +4529,9 @@
         "466c0d1a9594",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4560,9 +4561,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4592,9 +4593,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4624,9 +4625,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4648,9 +4649,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4680,9 +4681,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4704,9 +4705,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4736,9 +4737,9 @@
         "c980ba96110a",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4760,9 +4761,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4784,9 +4785,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4817,9 +4818,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4849,9 +4850,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4873,9 +4874,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4897,9 +4898,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4929,9 +4930,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4953,9 +4954,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -4977,9 +4978,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5001,9 +5002,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5025,9 +5026,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5057,9 +5058,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5081,9 +5082,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5105,9 +5106,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5137,9 +5138,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5169,9 +5170,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5193,9 +5194,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5217,9 +5218,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5242,9 +5243,9 @@
         "466c0d1a9594",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5266,9 +5267,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5298,9 +5299,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5322,9 +5323,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5346,9 +5347,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5370,9 +5371,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5394,9 +5395,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5418,9 +5419,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5442,9 +5443,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5474,9 +5475,9 @@
         "b88f44441ab2",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5498,9 +5499,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5523,9 +5524,9 @@
         "466c0d1a9594",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5555,9 +5556,9 @@
         "fb3a27473b75",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5579,9 +5580,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5603,9 +5604,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5627,9 +5628,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5659,9 +5660,9 @@
         "fb3a27473b75",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5683,9 +5684,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5708,9 +5709,9 @@
         "466c0d1a9594",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5732,9 +5733,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5764,9 +5765,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5788,9 +5789,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5812,9 +5813,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5836,9 +5837,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5860,9 +5861,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5884,9 +5885,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5908,9 +5909,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5933,9 +5934,9 @@
         "466c0d1a9594",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5957,9 +5958,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -5981,9 +5982,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6005,9 +6006,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6030,9 +6031,9 @@
         "466c0d1a9594",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6054,9 +6055,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6078,9 +6079,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6102,9 +6103,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6126,9 +6127,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6160,9 +6161,9 @@
         "d5cbb13b00fd",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6184,9 +6185,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6208,9 +6209,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6232,9 +6233,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6256,9 +6257,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6280,9 +6281,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6304,9 +6305,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6328,9 +6329,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6352,9 +6353,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6376,9 +6377,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6400,9 +6401,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6432,9 +6433,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6456,9 +6457,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6480,9 +6481,9 @@
         "11f6faf32fa2",
         "c980ba96110a"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6504,9 +6505,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6536,9 +6537,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6568,9 +6569,9 @@
         "bda14ca63ce1",
         "fbb90b90ab14"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6592,9 +6593,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6616,9 +6617,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6640,9 +6641,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6664,9 +6665,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6688,9 +6689,9 @@
         "11f6faf32fa2",
         "bda14ca63ce1"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6712,9 +6713,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6736,9 +6737,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6760,9 +6761,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6784,9 +6785,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6808,9 +6809,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6832,9 +6833,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6856,9 +6857,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6880,9 +6881,9 @@
         "11f6faf32fa2",
         "a694ef87d7af"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6904,9 +6905,9 @@
         "11f6faf32fa2",
         "6386079d0520"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6927,9 +6928,9 @@
       "repeated_paragraph_hashes": [
         "4a1f50c2942f"
       ],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -6948,9 +6949,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6969,9 +6970,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -6992,9 +6993,9 @@
       "repeated_paragraph_hashes": [
         "c8d739bab4eb"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7013,9 +7014,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -7034,9 +7035,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -7055,9 +7056,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -7076,9 +7077,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -7097,9 +7098,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -7118,9 +7119,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7139,9 +7140,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7162,9 +7163,9 @@
       "repeated_paragraph_hashes": [
         "c8d739bab4eb"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7183,9 +7184,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7211,9 +7212,9 @@
         "84c49add7d94",
         "9d94ea19286e"
       ],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -7223,7 +7224,7 @@
       "description": "How Motivational-Quote.org selects quotes, researches personal growth articles, handles affiliate links, and updates content.",
       "canonical": "https://motivational-quote.org/editorial-standards.html",
       "indexable": true,
-      "page_kind": "editorial",
+      "page_kind": "trust",
       "visible_word_count": 246,
       "internal_link_count": 8,
       "credible_external_source_count": 0,
@@ -7239,10 +7240,10 @@
         "84c49add7d94",
         "9d94ea19286e"
       ],
-      "decision": "remove",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
-      "proposed_requires_editorial_review": true
+      "disposition_basis": "Deterministic trust/utility-page rule.",
+      "proposed_requires_editorial_review": false
     },
     {
       "path": "embracing-change-uncertainty.html",
@@ -7260,9 +7261,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7281,9 +7282,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7304,9 +7305,9 @@
       "repeated_paragraph_hashes": [
         "c8d739bab4eb"
       ],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7325,9 +7326,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7346,9 +7347,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7369,9 +7370,9 @@
       "repeated_paragraph_hashes": [
         "4a1f50c2942f"
       ],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -7390,9 +7391,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7411,9 +7412,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7432,9 +7433,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7453,9 +7454,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7474,9 +7475,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7495,9 +7496,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7516,9 +7517,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7537,9 +7538,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7558,9 +7559,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -7570,7 +7571,7 @@
       "description": "How Motivational-Quote.org chooses, verifies, and attributes public-domain motivational quotes.",
       "canonical": "https://motivational-quote.org/quote-sources.html",
       "indexable": true,
-      "page_kind": "editorial",
+      "page_kind": "trust",
       "visible_word_count": 315,
       "internal_link_count": 11,
       "credible_external_source_count": 0,
@@ -7579,10 +7580,10 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
-      "proposed_requires_editorial_review": true
+      "disposition_basis": "Deterministic trust/utility-page rule.",
+      "proposed_requires_editorial_review": false
     },
     {
       "path": "quotes-for-starting-a-new-job.html",
@@ -7600,31 +7601,10 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "rewrite",
+      "public_url_disposition": "rewrite",
       "consolidate_to": null,
-      "decision_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
+      "disposition_basis": "Explicit preferred editorial salvage candidate; rewrite still requires human review.",
       "proposed_requires_editorial_review": true
-    },
-    {
-      "path": "replit_snapshot/2026-01-29/client/index.html",
-      "url": "/replit_snapshot/2026-01-29/client/index.html",
-      "title": "",
-      "description": "",
-      "canonical": "",
-      "indexable": true,
-      "page_kind": "utility",
-      "visible_word_count": 0,
-      "internal_link_count": 0,
-      "credible_external_source_count": 0,
-      "sponsored_link_count": 0,
-      "page_level_disclosure": false,
-      "sitemap_presence": false,
-      "repeated_paragraph_count": 0,
-      "repeated_paragraph_hashes": [],
-      "decision": "keep",
-      "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
-      "proposed_requires_editorial_review": false
     },
     {
       "path": "resources.html",
@@ -7642,9 +7622,9 @@
       "sitemap_presence": true,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
     },
     {
@@ -7663,9 +7643,9 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "remove",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
+      "disposition_basis": "Outside capped salvage set; proposed removal requires human review.",
       "proposed_requires_editorial_review": true
     },
     {
@@ -7675,7 +7655,7 @@
       "description": "Get weekly motivation, mindset shifts, and actionable advice delivered to your inbox. Free forever.",
       "canonical": "https://motivational-quote.org/subscribe.html",
       "indexable": true,
-      "page_kind": "editorial",
+      "page_kind": "utility",
       "visible_word_count": 108,
       "internal_link_count": 5,
       "credible_external_source_count": 0,
@@ -7684,31 +7664,10 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "remove",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
-      "proposed_requires_editorial_review": true
-    },
-    {
-      "path": "templates/post.html",
-      "url": "/templates/post.html",
-      "title": "{{TITLE}} | Motivational Quote",
-      "description": "{{DESCRIPTION}}",
-      "canonical": "https://motivational-quote.org/{{SLUG}}.html",
-      "indexable": true,
-      "page_kind": "editorial",
-      "visible_word_count": 54,
-      "internal_link_count": 5,
-      "credible_external_source_count": 0,
-      "sponsored_link_count": 0,
-      "page_level_disclosure": false,
-      "sitemap_presence": false,
-      "repeated_paragraph_count": 0,
-      "repeated_paragraph_hashes": [],
-      "decision": "remove",
-      "consolidate_to": null,
-      "decision_basis": "Outside capped salvage set; proposed removal requires human review.",
-      "proposed_requires_editorial_review": true
+      "disposition_basis": "Deterministic trust/utility-page rule.",
+      "proposed_requires_editorial_review": false
     },
     {
       "path": "terms.html",
@@ -7726,10 +7685,22 @@
       "sitemap_presence": false,
       "repeated_paragraph_count": 0,
       "repeated_paragraph_hashes": [],
-      "decision": "keep",
+      "public_url_disposition": "keep",
       "consolidate_to": null,
-      "decision_basis": "Deterministic trust/utility-page rule.",
+      "disposition_basis": "Deterministic trust/utility-page rule.",
       "proposed_requires_editorial_review": false
+    }
+  ],
+  "repository_file_inventory": [
+    {
+      "path": "replit_snapshot/2026-01-29/client/index.html",
+      "repository_file_disposition": "retain-as-repository-artifact",
+      "disposition_basis": "Template or development snapshot; retain as a repository file but exclude from public URL decisions."
+    },
+    {
+      "path": "templates/post.html",
+      "repository_file_disposition": "retain-as-repository-artifact",
+      "disposition_basis": "Template or development snapshot; retain as a repository file but exclude from public URL decisions."
     }
   ]
 }
