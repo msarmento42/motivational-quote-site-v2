@@ -2,8 +2,8 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/blog/overcoming-procrastination.html",
-      "destination": "/overcoming-procrastination.html",
+      "source": "/blog/overcoming-procrastination",
+      "destination": "/overcoming-procrastination",
       "permanent": true
     }
   ],

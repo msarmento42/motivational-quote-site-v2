@@ -116,7 +116,7 @@ def main() -> None:
 
     config = json.loads((ROOT / "vercel.json").read_text())
     redirects = config.get("redirects", [])
-    expected_redirect = {"source": "/blog/overcoming-procrastination.html", "destination": "/overcoming-procrastination.html", "permanent": True}
+    expected_redirect = {"source": "/blog/overcoming-procrastination", "destination": "/overcoming-procrastination", "permanent": True}
     if redirects != [expected_redirect]:
         fail(f"redirect policy must contain only the approved duplicate: {redirects}")
 

@@ -205,7 +205,7 @@ def write_sitemap(retained: list[str]) -> None:
 
 
 def write_vercel() -> None:
-    config = {"cleanUrls": True, "redirects": [{"source": "/blog/overcoming-procrastination.html", "destination": "/overcoming-procrastination.html", "permanent": True}], "rewrites": [{"source": "/editorial-policy", "destination": "/editorial-standards.html"}]}
+    config = {"cleanUrls": True, "redirects": [{"source": "/blog/overcoming-procrastination", "destination": "/overcoming-procrastination", "permanent": True}], "rewrites": [{"source": "/editorial-policy", "destination": "/editorial-standards.html"}]}
     (ROOT / "vercel.json").write_text(json.dumps(config, indent=2) + "\n")
 
 
