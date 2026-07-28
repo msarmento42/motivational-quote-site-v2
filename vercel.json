@@ -1,5 +1,12 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/blog/overcoming-procrastination.html",
+      "destination": "/overcoming-procrastination.html",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/editorial-policy",
