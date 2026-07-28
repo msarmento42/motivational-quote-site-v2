@@ -4,10 +4,11 @@
 
 ## Portfolio summary
 
-- Production HTML files inventoried exactly once: **293**
-- Indexable editorial URLs classified: **278**
+- Public HTML files inventoried exactly once: **291**
+- Repository-only HTML files excluded from URL decisions: **2**
+- Indexable editorial URLs classified: **274**
 - Editorial salvage candidates (cap 15): **15**
-- Decisions: `consolidate-to` 1, `keep` 14, `not-applicable` 1, `remove` 262, `rewrite` 15
+- Decisions: `consolidate-to` 1, `keep` 16, `not-applicable` 1, `remove` 258, `rewrite` 15
 - Root/blog duplicate groups: **1**
 - Manufactured title-prefix families: **4**
 - Intent-cannibalization clusters: **8**
@@ -59,9 +60,16 @@ Root/blog duplicate groups: `[["blog/overcoming-procrastination.html", "overcomi
 - **Day 60:** Pause all editorial spending if salvage pages have <200 cumulative organic impressions, <10 organic clicks, OR zero affiliate outbound clicks; allow only technical fixes.
 - **Day 90:** Exit the content-site strategy (retain only utility/trust pages or sell/park the domain) if salvage pages have <500 cumulative organic impressions, <25 organic clicks, and $0 verified revenue.
 
-## Decision inventory
+## Repository-only files
 
-| URL | Kind | Indexable | Decision | Destination | Words | Sources | Repeated ¶ | Sitemap |
+These files are inventoried separately and receive no public URL disposition.
+
+- `replit_snapshot/2026-01-29/client/index.html` — `retain-as-repository-artifact`
+- `templates/post.html` — `retain-as-repository-artifact`
+
+## Public URL disposition inventory
+
+| URL | Kind | Indexable | Disposition | Destination | Words | Sources | Repeated ¶ | Sitemap |
 |---|---|---:|---|---|---:|---:|---:|---:|
 | /404.html | utility | False | not-applicable | — | 53 | 0 | 0 | False |
 | /about.html | trust | True | keep | — | 571 | 0 | 0 | True |
@@ -332,7 +340,7 @@ Root/blog duplicate groups: `[["blog/overcoming-procrastination.html", "overcomi
 | /daily-motivation.html | editorial | True | remove | — | 357 | 0 | 1 | False |
 | /developing-empathy-compassion.html | editorial | True | remove | — | 411 | 0 | 0 | False |
 | /editorial-policy.html | trust | True | keep | — | 246 | 0 | 6 | False |
-| /editorial-standards.html | editorial | True | remove | — | 246 | 0 | 6 | False |
+| /editorial-standards.html | trust | True | keep | — | 246 | 0 | 6 | False |
 | /embracing-change-uncertainty.html | editorial | True | remove | — | 437 | 0 | 0 | False |
 | /finding-purpose-meaning.html | editorial | True | remove | — | 424 | 0 | 0 | False |
 | /goal-setting.html | editorial | True | remove | — | 371 | 0 | 1 | False |
@@ -348,11 +356,9 @@ Root/blog duplicate groups: `[["blog/overcoming-procrastination.html", "overcomi
 | /power-of-daily-gratitude.html | editorial | True | remove | — | 429 | 0 | 0 | False |
 | /power-of-habits.html | editorial | True | remove | — | 436 | 0 | 0 | False |
 | /privacy.html | trust | True | keep | — | 328 | 1 | 0 | False |
-| /quote-sources.html | editorial | True | remove | — | 315 | 0 | 0 | False |
+| /quote-sources.html | trust | True | keep | — | 315 | 0 | 0 | False |
 | /quotes-for-starting-a-new-job.html | editorial | True | rewrite | — | 942 | 0 | 0 | False |
-| /replit_snapshot/2026-01-29/client/index.html | utility | True | keep | — | 0 | 0 | 0 | False |
 | /resources.html | utility | True | keep | — | 741 | 0 | 0 | True |
 | /setting-boundaries-self-care.html | editorial | True | remove | — | 966 | 0 | 0 | False |
-| /subscribe.html | editorial | True | remove | — | 108 | 0 | 0 | False |
-| /templates/post.html | editorial | True | remove | — | 54 | 0 | 0 | False |
+| /subscribe.html | utility | True | keep | — | 108 | 0 | 0 | False |
 | /terms.html | trust | True | keep | — | 249 | 0 | 0 | False |
