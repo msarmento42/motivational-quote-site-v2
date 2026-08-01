@@ -2,15 +2,29 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/blog",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
       "source": "/blog/overcoming-procrastination",
       "destination": "/overcoming-procrastination",
       "permanent": true
-    }
-  ],
-  "rewrites": [
+    },
     {
       "source": "/editorial-policy",
-      "destination": "/editorial-standards.html"
+      "destination": "/editorial-standards.html",
+      "permanent": true
+    },
+    {
+      "source": "/editorial-policy.html",
+      "destination": "/editorial-standards.html",
+      "permanent": true
     }
   ]
 }
