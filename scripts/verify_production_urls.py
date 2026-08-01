@@ -51,6 +51,10 @@ def expected_canonical(path: str) -> str:
         return SITE + "/"
     if path == "blog/index.html":
         return SITE + "/blog/"
+    if path == "blog.html":
+        return SITE + "/blog/"
+    if path == "editorial-policy.html":
+        return SITE + "/editorial-standards.html"
     return SITE + "/" + path
 
 
@@ -116,20 +120,26 @@ def main() -> None:
 
     config = json.loads((ROOT / "vercel.json").read_text())
     redirects = config.get("redirects", [])
-    expected_redirect = {"source": "/blog/overcoming-procrastination", "destination": "/overcoming-procrastination", "permanent": True}
-    if redirects != [expected_redirect]:
-        fail(f"redirect policy must contain only the approved duplicate: {redirects}")
+    expected_redirects = [
+        {"source": "/blog", "destination": "/blog/", "permanent": True},
+        {"source": "/blog.html", "destination": "/blog/", "permanent": True},
+        {"source": "/blog/overcoming-procrastination", "destination": "/overcoming-procrastination", "permanent": True},
+        {"source": "/editorial-policy", "destination": "/editorial-standards.html", "permanent": True},
+        {"source": "/editorial-policy.html", "destination": "/editorial-standards.html", "permanent": True},
+    ]
+    if redirects != expected_redirects:
+        fail(f"redirect policy must contain the approved canonical rules: {redirects}")
 
     tree = ET.parse(ROOT / "sitemap.xml")
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     locations = [node.text for node in tree.findall("sm:url/sm:loc", namespace)]
-    expected_locations = sorted(expected_canonical(path) for path in retained)
+    expected_locations = sorted({expected_canonical(path) for path in retained})
     if locations != expected_locations:
         fail(f"sitemap mismatch: expected {len(expected_locations)} retained URLs, got {len(locations)}")
     if len(locations) != len(set(locations)):
         fail("sitemap contains duplicate URLs")
 
-    print("Verified production URL tree: 31 retained/indexable URLs, 258 removals, 1 exact redirect, recursive links/canonicals/sitemap valid.")
+    print("Verified production URL tree: 31 retained files, 29 unique indexable sitemap URLs, canonical aliases and redirects, recursive links valid.")
 
 
 if __name__ == "__main__":
