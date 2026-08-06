@@ -18,11 +18,11 @@ const requiredRoutes = [
   '/',
   '/ads.txt',
   '/sitemap.xml',
-  '/about.html',
-  '/contact.html',
-  '/privacy.html',
-  '/editorial-standards.html',
-  '/quote-sources.html',
+  '/about',
+  '/contact',
+  '/privacy',
+  '/editorial-standards',
+  '/quote-sources',
 ];
 
 async function assertFile(path) {
@@ -62,11 +62,11 @@ async function main() {
     fetchText('/ads.txt'),
   ]);
 
-  if (!home.includes('quote-sources.html')) {
-    throw new Error('Homepage does not link to quote-sources.html');
+  if (!home.includes('quote-sources')) {
+    throw new Error('Homepage does not link to quote-sources');
   }
-  if (!sitemap.includes('/quote-sources.html')) {
-    throw new Error('Sitemap does not include /quote-sources.html');
+  if (!sitemap.includes('/quote-sources')) {
+    throw new Error('Sitemap does not include /quote-sources');
   }
   if (!liveAdsTxt.includes(ADS_LINE)) {
     throw new Error('Live ads.txt does not contain the expected AdSense publisher line');

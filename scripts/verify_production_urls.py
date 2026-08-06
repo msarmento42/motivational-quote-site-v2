@@ -49,13 +49,11 @@ def normalize(page: Path, raw_url: str) -> Path | None:
 def expected_canonical(path: str) -> str:
     if path == "index.html":
         return SITE + "/"
-    if path == "blog/index.html":
-        return SITE + "/blog/"
-    if path == "blog.html":
+    if path in ("blog/index.html", "blog.html"):
         return SITE + "/blog/"
     if path == "editorial-policy.html":
-        return SITE + "/editorial-standards.html"
-    return SITE + "/" + path
+        return SITE + "/editorial-standards"
+    return SITE + "/" + path.removesuffix(".html")
 
 
 def main() -> None:
@@ -124,8 +122,8 @@ def main() -> None:
         {"source": "/blog", "destination": "/blog/", "permanent": True},
         {"source": "/blog.html", "destination": "/blog/", "permanent": True},
         {"source": "/blog/overcoming-procrastination", "destination": "/overcoming-procrastination", "permanent": True},
-        {"source": "/editorial-policy", "destination": "/editorial-standards.html", "permanent": True},
-        {"source": "/editorial-policy.html", "destination": "/editorial-standards.html", "permanent": True},
+        {"source": "/editorial-policy", "destination": "/editorial-standards", "permanent": True},
+        {"source": "/editorial-policy.html", "destination": "/editorial-standards", "permanent": True},
     ]
     if redirects != expected_redirects:
         fail(f"redirect policy must contain the approved canonical rules: {redirects}")
