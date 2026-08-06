@@ -19,6 +19,19 @@ SITE = "https://motivational-quote.org"
 MERGE_MARKER = "<!-- consolidated-from-blog-overcoming-procrastination -->"
 
 
+def public_path(relative: str) -> str:
+    """Return the public clean URL for a repository HTML path."""
+    if relative == "index.html":
+        return "/"
+    if relative in ("blog/index.html", "blog.html"):
+        return "/blog/"
+    return "/" + relative.removesuffix(".html")
+
+
+def public_url(relative: str) -> str:
+    return SITE + public_path(relative)
+
+
 def records() -> list[dict]:
     data = json.loads(MANIFEST.read_text())
     rows = data["public_url_inventory"]
@@ -102,7 +115,7 @@ def clean_links(page: Path, removed: set[str], redirects: dict[str, str]) -> Non
 
 def ensure_canonical(page: Path) -> None:
     relative = page.relative_to(ROOT).as_posix()
-    canonical = SITE + ("/" if relative == "index.html" else "/blog/" if relative == "blog/index.html" else "/" + relative)
+    canonical = public_url(relative)
     text = page.read_text()
     tag = f'<link rel="canonical" href="{canonical}" />'
     existing = re.compile(r'<link\b(?=[^>]*\brel=["\']canonical["\'])[^>]*>', re.I)
@@ -115,10 +128,10 @@ def ensure_canonical(page: Path) -> None:
 
 
 def collection_page(path: str, heading: str, description: str, articles: list[Path]) -> None:
-    canonical = "/blog/" if path == "blog/index.html" else f"/{path}"
+    canonical = public_path(path)
     depth = "../" if "/" in path else ""
-    items = "\n".join(f'        <li><a href="{depth}{p.relative_to(ROOT).as_posix()}">{html.escape(title(p))}</a></li>' for p in articles)
-    schema_items = [{"@type": "Article", "headline": title(p), "url": f"{SITE}/{p.relative_to(ROOT).as_posix()}"} for p in articles]
+    items = "\n".join(f'        <li><a href="{public_path(p.relative_to(ROOT).as_posix())}">{html.escape(title(p))}</a></li>' for p in articles)
+    schema_items = [{"@type": "Article", "headline": title(p), "url": public_url(p.relative_to(ROOT).as_posix())} for p in articles]
     schema = json.dumps({"@context": "https://schema.org", "@type": "CollectionPage", "name": heading, "url": SITE + canonical, "mainEntity": schema_items}, ensure_ascii=False)
     content = f'''<!DOCTYPE html>
 <html lang="en">
@@ -134,7 +147,7 @@ def collection_page(path: str, heading: str, description: str, articles: list[Pa
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6175161566333696" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header><nav class="navbar"><a href="{depth}index.html" class="brand">Motivational Quotes</a><ul class="nav-links"><li><a href="{depth}index.html">Home</a></li><li><a href="{depth}blog.html">Blog</a></li><li><a href="{depth}about.html">About</a></li><li><a href="{depth}editorial-standards.html">Editorial Standards</a></li></ul></nav></header>
+  <header><nav class="navbar"><a href="/" class="brand">Motivational Quotes</a><ul class="nav-links"><li><a href="/">Home</a></li><li><a href="/blog/">Blog</a></li><li><a href="/about">About</a></li><li><a href="/editorial-standards">Editorial Standards</a></li></ul></nav></header>
   <main><section class="content topic-hub"><h1>{html.escape(heading)}</h1><p>{html.escape(description)}</p><ul class="post-list topic-list">
 {items}
       </ul></section></main>
@@ -181,10 +194,10 @@ def rewrite_home(salvage: list[Path]) -> None:
         'The <a href="blog/">focused motivation blog</a> collects our strongest practical guides on habits, focus, resilience, wellbeing, and purposeful growth.',
         text,
     )
-    links = "\n".join(f'      <li><a href="{p.relative_to(ROOT).as_posix()}">{html.escape(title(p))}</a></li>' for p in sorted(salvage))
+    links = "\n".join(f'      <li><a href="{public_path(p.relative_to(ROOT).as_posix())}">{html.escape(title(p))}</a></li>' for p in sorted(salvage))
     section = f'''  <section class="content">
     <h2>Browse the Focused Editorial Library</h2>
-    <p>Start with one of these retained guides, or browse by <a href="category-productivity-focus.html">productivity</a>, <a href="category-mindset-resilience.html">mindset and resilience</a>, <a href="category-wellbeing-mindfulness.html">wellbeing</a>, or <a href="category-purpose-growth.html">purpose and growth</a>.</p>
+    <p>Start with one of these retained guides, or browse by <a href="/category-productivity-focus">productivity</a>, <a href="/category-mindset-resilience">mindset and resilience</a>, <a href="/category-wellbeing-mindfulness">wellbeing</a>, or <a href="/category-purpose-growth">purpose and growth</a>.</p>
     <ul class="post-list">
 {links}
     </ul>
@@ -198,14 +211,13 @@ def rewrite_home(salvage: list[Path]) -> None:
 def write_sitemap(retained: list[str]) -> None:
     locations = []
     for path in retained:
-        location = "/" if path == "index.html" else "/blog/" if path == "blog/index.html" else "/" + path
-        locations.append(SITE + location)
+        locations.append(public_url(path))
     urls = [f"  <url><loc>{location}</loc></url>" for location in sorted(locations)]
     (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + "\n</urlset>\n")
 
 
 def write_vercel() -> None:
-    config = {"cleanUrls": True, "redirects": [{"source": "/blog/overcoming-procrastination", "destination": "/overcoming-procrastination", "permanent": True}], "rewrites": [{"source": "/editorial-policy", "destination": "/editorial-standards.html"}]}
+    config = {"cleanUrls": True, "redirects": [{"source": "/blog/overcoming-procrastination", "destination": "/overcoming-procrastination", "permanent": True}], "rewrites": [{"source": "/editorial-policy", "destination": "/editorial-standards"}]}
     (ROOT / "vercel.json").write_text(json.dumps(config, indent=2) + "\n")
 
 

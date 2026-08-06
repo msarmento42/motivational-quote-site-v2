@@ -18,12 +18,12 @@
     },
     {
       "source": "/editorial-policy",
-      "destination": "/editorial-standards.html",
+      "destination": "/editorial-standards",
       "permanent": true
     },
     {
       "source": "/editorial-policy.html",
-      "destination": "/editorial-standards.html",
+      "destination": "/editorial-standards",
       "permanent": true
     }
   ]

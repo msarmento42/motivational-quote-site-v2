@@ -7,9 +7,10 @@ Use this checklist before requesting or re-requesting AdSense review for motivat
 - `https://motivational-quote.org/ads.txt` returns HTTP 200.
 - `ads.txt` contains `google.com, pub-6175161566333696, DIRECT, f08c47fec0942fa0`.
 - `https://motivational-quote.org/sitemap.xml` returns HTTP 200.
-- The sitemap includes `/quote-sources.html`.
-- The homepage links to `quote-sources.html`.
-- Core trust pages are present: `about.html`, `contact.html`, `privacy.html`, `editorial-standards.html`, `quote-sources.html`.
+- The sitemap includes `/quote-sources` and contains only canonical clean URLs.
+- The homepage links to `/quote-sources`.
+- Core trust pages are present at `/about`, `/contact`, `/privacy`, `/editorial-standards`, and `/quote-sources`.
+- Monetized articles show a visible affiliate disclosure and mark sponsored links with `rel="sponsored"`.
 - Static validation passes.
 - The post-deploy smoke check passes with `node scripts/check-adsense-readiness.mjs`.
 

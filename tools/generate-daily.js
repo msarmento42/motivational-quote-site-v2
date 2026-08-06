@@ -25,7 +25,7 @@ function render(tpl, vars){
 }
 
 function addToSitemap(slug){
-  const url = `https://motivational-quote.org/${slug}.html`;
+  const url = `https://motivational-quote.org/${slug}`;
   let xml = fs.readFileSync(SITEMAP, 'utf8');
   if (xml.includes(url)) return;
   const insert = `  <url>\n    <loc>${url}</loc>\n  </url>\n`;
